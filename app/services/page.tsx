@@ -54,7 +54,7 @@ export default function ServicesPage() {
                   </ul>
                   <p className="plain-note">{service.note}</p>
                   {service.cta ? (
-                    <ChromeButton href={ctaHref} external={serviceExternal} variant="secondary">
+                    <ChromeButton href={ctaHref} external={Boolean(serviceExternal)} variant="secondary">
                       {service.cta}
                     </ChromeButton>
                   ) : null}
