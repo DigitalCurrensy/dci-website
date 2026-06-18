@@ -42,6 +42,7 @@ https://www.digitalcurrensy.com/ai-music
 https://www.digitalcurrensy.com/artist-royalties
 https://www.digitalcurrensy.com/streaming-strategy
 https://www.digitalcurrensy.com/sync-licensing
+https://www.digitalcurrensy.com/playlist-pitching
 https://www.digitalcurrensy.com/playlists
 https://www.digitalcurrensy.com/sync
 https://www.digitalcurrensy.com/label-iq-ai
@@ -114,4 +115,9 @@ Dedicated sync licensing page:
 https://www.digitalcurrensy.com/sync-licensing
 
 This page explains DCI's sync licensing preparation support for independent artists, labels, managers, producers, creators, and creative teams. It covers catalog organization, metadata review, rights-readiness education, music for film, TV, ads, games, trailers, promos, distribution support, royalty reporting, playlist alignment, and label services.
+
+Dedicated playlist pitching page:
+https://www.digitalcurrensy.com/playlist-pitching
+
+This page explains DCI's playlist pitching preparation support for independent artists, labels, managers, producers, creators, and creative teams. It covers release planning, playlist readiness, streaming strategy, metadata review, campaign assets, artist positioning, distribution support, reporting, and label services.
 
