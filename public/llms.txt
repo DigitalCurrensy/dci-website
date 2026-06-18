@@ -43,6 +43,7 @@ https://www.digitalcurrensy.com/artist-royalties
 https://www.digitalcurrensy.com/streaming-strategy
 https://www.digitalcurrensy.com/sync-licensing
 https://www.digitalcurrensy.com/playlist-pitching
+https://www.digitalcurrensy.com/music-marketing
 https://www.digitalcurrensy.com/playlists
 https://www.digitalcurrensy.com/sync
 https://www.digitalcurrensy.com/label-iq-ai
@@ -120,4 +121,9 @@ Dedicated playlist pitching page:
 https://www.digitalcurrensy.com/playlist-pitching
 
 This page explains DCI's playlist pitching preparation support for independent artists, labels, managers, producers, creators, and creative teams. It covers release planning, playlist readiness, streaming strategy, metadata review, campaign assets, artist positioning, distribution support, reporting, and label services.
+
+Dedicated music marketing page:
+https://www.digitalcurrensy.com/music-marketing
+
+This page explains DCI's music marketing preparation support for independent artists, labels, managers, producers, creators, and creative teams. It covers release campaign planning, artist positioning, playlist readiness, streaming strategy, metadata review, campaign assets, distribution support, reporting, and label services.
 
