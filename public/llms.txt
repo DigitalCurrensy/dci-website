@@ -37,6 +37,7 @@ Important pages:
 https://www.digitalcurrensy.com/
 https://www.digitalcurrensy.com/about
 https://www.digitalcurrensy.com/services
+https://www.digitalcurrensy.com/music-distribution
 https://www.digitalcurrensy.com/playlists
 https://www.digitalcurrensy.com/sync
 https://www.digitalcurrensy.com/label-iq-ai
@@ -84,3 +85,9 @@ info@digitalcurrensy.com
 
 Important disclaimer:
 DCI does not provide financial, legal, or investment advice. Creator token and fan ownership concepts should be reviewed carefully with qualified professionals.
+
+Dedicated music distribution page:
+https://www.digitalcurrensy.com/music-distribution
+
+This page explains DCI's independent music distribution support for artists, labels, managers, producers, and creative teams. It covers release planning, royalties, reporting, playlist strategy, sync preparation, campaign support, streaming strategy, AI music tools, creator technology education, and label services.
+
