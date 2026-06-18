@@ -233,6 +233,58 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section" aria-labelledby="dci-faq-title">
+        <div className="section-inner split-grid">
+          <div className="section-heading">
+            <p className="eyebrow">DCI FAQ</p>
+            <h2 id="dci-faq-title">Music distribution, label services, and AI tools explained.</h2>
+            <p>
+              Clear answers for artists, labels, managers, and creative teams
+              researching independent music distribution, royalties, playlist
+              strategy, sync preparation, and AI-powered music tools.
+            </p>
+          </div>
+
+          <div className="copy-stack">
+            <div>
+              <h3>What does Digital Currency Inc. do?</h3>
+              <p>
+                Digital Currency Inc. helps independent artists and labels with
+                music distribution, royalties, playlist strategy, sync preparation,
+                video support, campaign planning, and label services.
+              </p>
+            </div>
+
+            <div>
+              <h3>Who is DCI built for?</h3>
+              <p>
+                DCI is built for independent artists, music labels, managers,
+                producers, creators, and artist teams that want more support
+                than basic upload-only distribution.
+              </p>
+            </div>
+
+            <div>
+              <h3>Does DCI support AI music and creator technology?</h3>
+              <p>
+                Yes. DCI connects music distribution with AI music tools,
+                creator technology education, and guidance for artists and labels
+                exploring modern release strategy.
+              </p>
+            </div>
+
+            <div>
+              <h3>How can artists work with DCI?</h3>
+              <p>
+                DCI uses an invite-based access process. Artists, labels, and
+                creative teams can request access through the invite form or
+                contact DCI at info@digitalcurrensy.com.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div className="section-inner final-home-cta">
         <CTASection
           title={finalCta.title}
