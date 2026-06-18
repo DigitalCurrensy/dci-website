@@ -57,6 +57,7 @@ https://www.digitalcurrensy.com/sync-preparation
 https://www.digitalcurrensy.com/release-strategy
 https://www.digitalcurrensy.com/music-business-support
 https://www.digitalcurrensy.com/independent-label-services
+https://www.digitalcurrensy.com/artist-development
 https://www.digitalcurrensy.com/playlists
 https://www.digitalcurrensy.com/sync
 https://www.digitalcurrensy.com/label-iq-ai
@@ -204,4 +205,9 @@ Dedicated independent label services page:
 https://www.digitalcurrensy.com/independent-label-services
 
 This page explains DCI's independent label services support for independent labels, artists, managers, producers, creators, and creative teams. It covers label services, artist services, release planning, catalog management, metadata review, royalty reporting, distribution reporting, playlist strategy, sync preparation, music marketing, and independent music operations.
+
+Dedicated artist development page:
+https://www.digitalcurrensy.com/artist-development
+
+This page explains DCI's artist development support for independent artists, labels, managers, producers, creators, and creative teams. It covers artist services, release strategy, music business support, playlist strategy, music marketing, catalog management, metadata review, royalty reporting, distribution reporting, sync preparation, and label services.
 
