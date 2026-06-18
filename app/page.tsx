@@ -164,6 +164,45 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section" aria-labelledby="dci-gpt-title">
+        <div className="section-inner split-grid">
+          <div className="section-heading">
+            <p className="eyebrow">Agentic DCI GPT</p>
+            <h2 id="dci-gpt-title">Ask DCI GPT before your next release.</h2>
+            <p>
+              DCI GPT helps artists, labels, managers, and creative teams get
+              fast guidance on music distribution, royalties, playlist strategy,
+              sync preparation, AI music tools, and label services.
+            </p>
+          </div>
+
+          <div className="copy-stack">
+            <p>
+              Use the assistant as a starting point for release planning, playlist
+              readiness, sync prep, campaign strategy, and understanding how DCI
+              supports independent music teams.
+            </p>
+            <ul className="feature-list compact">
+              <li>Music distribution and release planning</li>
+              <li>Royalties, reporting, and catalog questions</li>
+              <li>Playlist strategy and sync preparation</li>
+              <li>AI music tools and creator technology education</li>
+            </ul>
+            <div className="button-row">
+              <ChromeButton
+                href="https://chatgpt.com/g/g-2Td6g7htS-music-distribution-label-services-ai"
+                external
+              >
+                Ask DCI GPT
+              </ChromeButton>
+              <ChromeButton href="/label-iq-ai" variant="secondary">
+                Explore Label IQ AI
+              </ChromeButton>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div className="section-inner final-home-cta">
         <CTASection
           title={finalCta.title}
