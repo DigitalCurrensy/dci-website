@@ -86,7 +86,7 @@ export default function SyncLicensingPage() {
         <div className="section-inner split-grid">
           <div className="section-heading">
             <p className="eyebrow">Sync licensing preparation</p>
-            <h1>Prepare your catalog for sync opportunities.</h1>
+            <h1>Prepare your catalog for sync.</h1>
             <p>
               Digital Currency Inc. helps artists, labels, managers, and
               creative teams prepare music catalogs for sync licensing
