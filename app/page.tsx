@@ -164,6 +164,36 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section" aria-labelledby="dci-trust-title">
+        <div className="section-inner split-grid">
+          <div className="section-heading">
+            <p className="eyebrow">Built for independent music teams</p>
+            <h2 id="dci-trust-title">More than upload-only distribution.</h2>
+            <p>
+              Digital Currency Inc. supports artists, labels, managers, and
+              creative teams with release strategy, distribution support,
+              royalties, playlist readiness, sync preparation, and campaign
+              planning.
+            </p>
+          </div>
+
+          <div className="copy-stack">
+            <p>
+              DCI is built for teams that want clean delivery, clear reporting,
+              and real support around the release. The platform connects music
+              distribution with label services, AI music tools, and creator
+              technology education.
+            </p>
+            <ul className="feature-list compact">
+              <li>Invite-based access for artists, labels, and creative teams</li>
+              <li>Support for distribution, royalties, playlists, and sync prep</li>
+              <li>AI music and creator technology guidance for modern releases</li>
+              <li>Official contact: info@digitalcurrensy.com</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section className="section" aria-labelledby="dci-gpt-title">
         <div className="section-inner split-grid">
           <div className="section-heading">
