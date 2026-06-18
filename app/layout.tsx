@@ -83,6 +83,44 @@ const dciStructuredData = {
         "@type": "Audience",
         "audienceType": "Independent artists, music labels, managers, producers, creators, and artist teams"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.digitalcurrensy.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does Digital Currency Inc. do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Digital Currency Inc. helps independent artists and labels with music distribution, royalties, playlist strategy, sync preparation, video support, campaign planning, and label services."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is DCI built for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DCI is built for independent artists, music labels, managers, producers, creators, and artist teams that want more support than basic upload-only distribution."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does DCI support AI music and creator technology?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. DCI connects music distribution with AI music tools, creator technology education, and guidance for artists and labels exploring modern release strategy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can artists work with DCI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DCI uses an invite-based access process. Artists, labels, and creative teams can request access through the invite form or contact DCI at info@digitalcurrensy.com."
+          }
+        }
+      ]
     }
   ]
 };
