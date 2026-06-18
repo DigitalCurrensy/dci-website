@@ -31,6 +31,7 @@ export const navItems = [
   { label: "PLAYLISTS", href: "/playlists" },
   { label: "SYNC", href: "/sync" },
   { label: "LABEL IQ AI", href: externalLinks.labelIqAiApp, external: true },
+  { label: "DCI GPT", href: "https://chatgpt.com/g/g-2Td6g7htS-music-distribution-label-services-ai", external: true },
   { label: "GET AN INVITE", href: inviteApplication.href, external: true, cta: true },
 ];
 
