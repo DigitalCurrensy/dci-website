@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     siteName: siteMetadata.openGraphTitle,
     images: [
       {
-        url: mediaPaths.dashboard,
-        width: 1200,
-        height: 750,
+        url: "/og-image.jpg",
+        width: 1024,
+        height: 1024,
         alt: siteMetadata.openGraphImageAlt,
       },
     ],
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteMetadata.openGraphTitle,
     description: siteMetadata.twitterDescription,
-    images: [mediaPaths.dashboard],
+    images: ["/og-image.jpg"],
   },
   icons: {
     icon: "/favicon.svg",
