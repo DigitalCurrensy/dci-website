@@ -38,6 +38,7 @@ https://www.digitalcurrensy.com/
 https://www.digitalcurrensy.com/about
 https://www.digitalcurrensy.com/services
 https://www.digitalcurrensy.com/music-distribution
+https://www.digitalcurrensy.com/ai-music
 https://www.digitalcurrensy.com/playlists
 https://www.digitalcurrensy.com/sync
 https://www.digitalcurrensy.com/label-iq-ai
@@ -90,4 +91,9 @@ Dedicated music distribution page:
 https://www.digitalcurrensy.com/music-distribution
 
 This page explains DCI's independent music distribution support for artists, labels, managers, producers, and creative teams. It covers release planning, royalties, reporting, playlist strategy, sync preparation, campaign support, streaming strategy, AI music tools, creator technology education, and label services.
+
+Dedicated AI music page:
+https://www.digitalcurrensy.com/ai-music
+
+This page explains DCI's AI music support for artists, labels, managers, producers, creators, and creative teams. It covers AI music tools, AI-assisted release strategy, music distribution, rights awareness, playlist readiness, sync preparation, campaign planning, creator technology education, and label services.
 
