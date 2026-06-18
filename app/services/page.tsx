@@ -4,6 +4,7 @@ import { CTASection } from "@/components/CTASection";
 import { MediaPlaceholder } from "@/components/MediaPlaceholder";
 import { servicesContent } from "@/data/servicesContent";
 import { inviteApplication, labelIqLinks } from "@/data/siteContent";
+import { MusicBusinessSupportAreas } from "@/components/MusicBusinessSupportAreas";
 
 export const metadata: Metadata = {
   title: servicesContent.metadata.title,
@@ -97,6 +98,8 @@ export default function ServicesPage() {
           external={cta.external}
         />
       </div>
+          <MusicBusinessSupportAreas />
+
     </main>
   );
 }
