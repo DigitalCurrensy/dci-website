@@ -51,6 +51,7 @@ https://www.digitalcurrensy.com/artist-services
 https://www.digitalcurrensy.com/royalty-reporting
 https://www.digitalcurrensy.com/catalog-management
 https://www.digitalcurrensy.com/metadata-review
+https://www.digitalcurrensy.com/distribution-reporting
 https://www.digitalcurrensy.com/playlists
 https://www.digitalcurrensy.com/sync
 https://www.digitalcurrensy.com/label-iq-ai
@@ -168,4 +169,9 @@ Dedicated metadata review page:
 https://www.digitalcurrensy.com/metadata-review
 
 This page explains DCI's music metadata review support for independent artists, labels, managers, producers, creators, and creative teams. It covers release metadata, music credits, catalog organization, distribution readiness, royalty reporting readiness, rights context, sync preparation, and label services.
+
+Dedicated distribution reporting page:
+https://www.digitalcurrensy.com/distribution-reporting
+
+This page explains DCI's distribution reporting readiness support for independent artists, labels, managers, producers, creators, and creative teams. It covers music distribution reports, platform reporting, royalty reporting readiness, catalog organization, metadata review, streaming context, playlist history, release planning, and label services.
 
