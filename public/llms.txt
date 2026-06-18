@@ -53,6 +53,7 @@ https://www.digitalcurrensy.com/catalog-management
 https://www.digitalcurrensy.com/metadata-review
 https://www.digitalcurrensy.com/distribution-reporting
 https://www.digitalcurrensy.com/playlist-strategy
+https://www.digitalcurrensy.com/sync-preparation
 https://www.digitalcurrensy.com/playlists
 https://www.digitalcurrensy.com/sync
 https://www.digitalcurrensy.com/label-iq-ai
@@ -180,4 +181,9 @@ Dedicated playlist strategy page:
 https://www.digitalcurrensy.com/playlist-strategy
 
 This page explains DCI's playlist strategy support for independent artists, labels, managers, producers, creators, and creative teams. It covers playlist readiness, playlist pitching preparation, streaming strategy, release planning, metadata review, campaign assets, music marketing, reporting context, and label services.
+
+Dedicated sync preparation page:
+https://www.digitalcurrensy.com/sync-preparation
+
+This page explains DCI's sync preparation support for independent artists, labels, managers, producers, creators, and creative teams. It covers sync licensing readiness, catalog organization, metadata review, release records, rights context, music for film, TV, ads, games, trailers, promos, distribution reporting, playlist history, and label services.
 
