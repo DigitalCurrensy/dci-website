@@ -40,6 +40,7 @@ https://www.digitalcurrensy.com/services
 https://www.digitalcurrensy.com/music-distribution
 https://www.digitalcurrensy.com/ai-music
 https://www.digitalcurrensy.com/artist-royalties
+https://www.digitalcurrensy.com/streaming-strategy
 https://www.digitalcurrensy.com/playlists
 https://www.digitalcurrensy.com/sync
 https://www.digitalcurrensy.com/label-iq-ai
@@ -102,4 +103,9 @@ Dedicated artist royalties page:
 https://www.digitalcurrensy.com/artist-royalties
 
 This page explains DCI's music royalty and reporting support for independent artists, labels, managers, producers, creators, and creative teams. It covers music royalties, distribution reporting, catalog organization, release tracking, streaming strategy, playlist readiness, sync preparation, rights awareness, and label services.
+
+Dedicated streaming strategy page:
+https://www.digitalcurrensy.com/streaming-strategy
+
+This page explains DCI's streaming strategy support for independent artists, labels, managers, producers, creators, and creative teams. It covers release planning, streaming platform positioning, playlist readiness, catalog growth, music distribution, royalty reporting, campaign support, sync preparation, metadata review, and label services.
 
