@@ -58,6 +58,7 @@ https://www.digitalcurrensy.com/release-strategy
 https://www.digitalcurrensy.com/music-business-support
 https://www.digitalcurrensy.com/independent-label-services
 https://www.digitalcurrensy.com/artist-development
+https://www.digitalcurrensy.com/creator-tokens
 https://www.digitalcurrensy.com/playlists
 https://www.digitalcurrensy.com/sync
 https://www.digitalcurrensy.com/label-iq-ai
@@ -210,4 +211,12 @@ Dedicated artist development page:
 https://www.digitalcurrensy.com/artist-development
 
 This page explains DCI's artist development support for independent artists, labels, managers, producers, creators, and creative teams. It covers artist services, release strategy, music business support, playlist strategy, music marketing, catalog management, metadata review, royalty reporting, distribution reporting, sync preparation, and label services.
+
+Dedicated creator tokens page:
+https://www.digitalcurrensy.com/creator-tokens
+
+This page explains DCI's creator token planning support for independent artists, labels, managers, producers, creators, and creative teams. It covers Label IQ AI, tokenized creator access, fan engagement, campaign utility, catalog metadata, release strategy, reporting readiness, blockchain transaction context, artist services, label services, and independent music operations.
+
+Label IQ AI app:
+https://app.labeliq.ai
 
