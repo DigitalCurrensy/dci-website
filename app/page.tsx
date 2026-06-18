@@ -8,6 +8,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { homeContent } from "@/data/homeContent";
 import { labelIqLinks, mediaPaths } from "@/data/siteContent";
 import { playlistsContent } from "@/data/playlistsContent";
+import { MusicBusinessSupportAreas } from "@/components/MusicBusinessSupportAreas";
 
 export const metadata: Metadata = {
   title: homeContent.metadata.title,
@@ -285,7 +286,9 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="section-inner final-home-cta">
+            <MusicBusinessSupportAreas />
+
+<div className="section-inner final-home-cta">
         <CTASection
           title={finalCta.title}
           body={finalCta.body}
