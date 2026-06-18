@@ -1950,3 +1950,68 @@ small {
     animation: none !important;
   }
 }
+
+
+/* DCI AI green accent layer */
+:root {
+  --accent-green: #00ff88;
+  --accent-green-soft: rgba(0, 255, 136, 0.10);
+  --accent-green-line: rgba(0, 255, 136, 0.42);
+  --accent-green-glow: 0 0 28px rgba(0, 255, 136, 0.20);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 5px;
+  height: 1px;
+  border-radius: 999px;
+  background: var(--accent-green);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.nav-link:hover,
+.nav-active {
+  border-color: var(--accent-green-line);
+  background: var(--accent-green-soft);
+  box-shadow: var(--accent-green-glow);
+}
+
+.nav-link:hover::after,
+.nav-active::after {
+  opacity: 0.9;
+  transform: scaleX(1);
+}
+
+.nav-link[href*="chatgpt.com"] {
+  color: var(--accent-green);
+  border-color: rgba(0, 255, 136, 0.25);
+}
+
+.nav-link[href*="chatgpt.com"]::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-right: 7px;
+  border-radius: 999px;
+  background: var(--accent-green);
+  box-shadow: 0 0 14px rgba(0, 255, 136, 0.8);
+}
+
+.nav-cta:hover,
+.chrome-button:hover,
+.cta-login-row a:hover {
+  border-color: rgba(0, 255, 136, 0.58);
+  box-shadow: 0 0 32px rgba(0, 255, 136, 0.20), inset 0 0 0 1px rgba(0, 255, 136, 0.20);
+}
+
+.eyebrow {
+  color: var(--accent-green);
+  text-shadow: 0 0 18px rgba(0, 255, 136, 0.18);
+}
+
