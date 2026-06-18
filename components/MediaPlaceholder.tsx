@@ -18,6 +18,7 @@ export function MediaPlaceholder({
   return (
     <figure className={`media-frame media-${aspect} ${className}`} data-media-label={label}>
       {src ? (
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={src} alt={alt ?? label} loading={priority ? "eager" : "lazy"} />
       ) : (
         <div className="media-empty" aria-hidden="true" />

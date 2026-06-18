@@ -16,6 +16,7 @@ export function Logo({ className = "", onClick, variant = "header" }: LogoProps)
   return (
     <Link className={classes} href="/" onClick={onClick}>
       <span className="brand-mark">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={mediaPaths.logoMark} alt="Digital Currensy Inc. logo mark" />
       </span>
       <span>
