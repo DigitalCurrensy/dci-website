@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 type MediaPlaceholderProps = {
   label: string;
   alt?: string;
@@ -18,8 +19,7 @@ export function MediaPlaceholder({
   return (
     <figure className={`media-frame media-${aspect} ${className}`} data-media-label={label}>
       {src ? (
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src} alt={alt ?? label} loading={priority ? "eager" : "lazy"} />
+                <img src={src} alt={alt ?? label} loading={priority ? "eager" : "lazy"} />
       ) : (
         <div className="media-empty" aria-hidden="true" />
       )}

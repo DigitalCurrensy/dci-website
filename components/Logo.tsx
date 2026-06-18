@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import type { MouseEventHandler } from "react";
 import Link from "next/link";
 import { globalContent, mediaPaths } from "@/data/siteContent";
@@ -16,8 +17,7 @@ export function Logo({ className = "", onClick, variant = "header" }: LogoProps)
   return (
     <Link className={classes} href="/" onClick={onClick}>
       <span className="brand-mark">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={mediaPaths.logoMark} alt="Digital Currensy Inc. logo mark" />
+                <img src={mediaPaths.logoMark} alt="Digital Currensy Inc. logo mark" />
       </span>
       <span>
         <strong>{globalContent.shortCompanyName}</strong>
