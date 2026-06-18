@@ -46,6 +46,7 @@ https://www.digitalcurrensy.com/playlist-pitching
 https://www.digitalcurrensy.com/music-marketing
 https://www.digitalcurrensy.com/release-planning
 https://www.digitalcurrensy.com/music-promotion
+https://www.digitalcurrensy.com/label-services
 https://www.digitalcurrensy.com/playlists
 https://www.digitalcurrensy.com/sync
 https://www.digitalcurrensy.com/label-iq-ai
@@ -138,4 +139,9 @@ Dedicated music promotion page:
 https://www.digitalcurrensy.com/music-promotion
 
 This page explains DCI's music promotion preparation support for independent artists, labels, managers, producers, creators, and creative teams. It covers release campaigns, artist promotion strategy, playlist readiness, streaming strategy, content planning, metadata review, distribution support, reporting, and label services.
+
+Dedicated label services page:
+https://www.digitalcurrensy.com/label-services
+
+This page explains DCI's label services support for independent artists, labels, managers, producers, creators, and creative teams. It covers music distribution support, release planning, royalty reporting readiness, catalog organization, playlist strategy, sync preparation, campaign planning, AI music tools, and creator technology education.
 
