@@ -55,6 +55,7 @@ https://www.digitalcurrensy.com/distribution-reporting
 https://www.digitalcurrensy.com/playlist-strategy
 https://www.digitalcurrensy.com/sync-preparation
 https://www.digitalcurrensy.com/release-strategy
+https://www.digitalcurrensy.com/music-business-support
 https://www.digitalcurrensy.com/playlists
 https://www.digitalcurrensy.com/sync
 https://www.digitalcurrensy.com/label-iq-ai
@@ -192,4 +193,9 @@ Dedicated release strategy page:
 https://www.digitalcurrensy.com/release-strategy
 
 This page explains DCI's music release strategy support for independent artists, labels, managers, producers, creators, and creative teams. It covers release planning, rollout timing, distribution readiness, playlist strategy, music marketing, metadata review, streaming strategy, catalog organization, reporting readiness, and label services.
+
+Dedicated music business support page:
+https://www.digitalcurrensy.com/music-business-support
+
+This page explains DCI's music business support for independent artists, labels, managers, producers, creators, and creative teams. It covers artist services, label services, release planning, royalty reporting, distribution reporting, catalog management, metadata review, sync preparation, playlist strategy, music marketing, and independent music operations.
 
