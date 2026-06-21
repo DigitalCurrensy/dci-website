@@ -1,0 +1,16 @@
+<svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DCI mark">
+  <defs>
+    <radialGradient id="markChrome" cx="34%" cy="23%" r="78%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="22%" stop-color="#f4f4f4"/>
+      <stop offset="48%" stop-color="#9a9a9b"/>
+      <stop offset="72%" stop-color="#3d3d3d"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+  </defs>
+  <circle cx="80" cy="80" r="76" fill="#000000"/>
+  <circle cx="80" cy="80" r="64" fill="url(#markChrome)" stroke="#f4f4f4" stroke-width="2"/>
+  <circle cx="80" cy="80" r="48" fill="none" stroke="#1b1b1b" stroke-width="3"/>
+  <path d="M43 53h39c22 0 38 14 38 34 0 21-16 35-39 35H43V53Zm24 19v31h12c10 0 17-6 17-16s-7-15-17-15H67Z" fill="#050505"/>
+  <text x="80" y="91" text-anchor="middle" font-family="Arial Black, Helvetica, sans-serif" font-size="27" font-weight="900" fill="#f4f4f4">I</text>
+</svg>
