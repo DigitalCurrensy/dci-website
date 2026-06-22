@@ -328,3 +328,69 @@
   }
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rev{opacity:1;transform:none}}
   :focus-visible{outline:2px solid var(--green-lite);outline-offset:3px}
+
+/* PATCH 1B — DCI feedback fixes: midnight-black field + visible hero video */
+:root {
+  --black: #010204;
+  --near: #040607;
+  --char: #080B0D;
+}
+
+html,
+body {
+  background: #010204 !important;
+}
+
+body::before {
+  opacity: .025;
+}
+
+.hero,
+section,
+footer {
+  background-color: #010204;
+}
+
+.hbg video {
+  opacity: .72;
+  filter: brightness(.78) contrast(1.18) saturate(1.08);
+  transform: scale(1.045);
+}
+
+.hbg::after {
+  background:
+    radial-gradient(circle at 50% 38%, rgba(15,107,69,.18), transparent 32%),
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.42),
+      rgba(0,0,0,.20) 40%,
+      rgba(1,2,4,.72) 76%,
+      rgba(1,2,4,.97)
+    );
+}
+
+.num,
+.svc,
+.lane,
+.plrow,
+.soc,
+.pcard,
+.gptitem,
+.fcard,
+.partgrid .pc {
+  background-color: #010204;
+}
+
+.marq,
+footer,
+.finalcta {
+  background-color: #040607;
+}
+
+.frame,
+.iqshot,
+.pcardx,
+.gpt-card,
+.featurecard {
+  background-color: rgba(4, 6, 7, .88);
+}
