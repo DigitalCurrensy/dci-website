@@ -1,0 +1,25 @@
+assets/css/main.css
+assets/gifs/hero-bg.gif
+assets/gifs/release-bg.gif
+assets/images/.DS_Store
+assets/images/proof/image (55).jpg
+assets/images/proof/image (57).jpg
+assets/images/proof/image (58).jpg
+assets/images/proof/image (59).jpg
+assets/images/proof/image (60).jpg
+assets/images/proof/image (61).jpg
+assets/images/proof/influencive-article.png
+assets/images/proof/rascal-cover.jpg
+assets/images/proof/rmr-rascal-Cover-Art.webp
+assets/images/proof/rollingstone-rmr.png
+assets/images/proof/Screenshot 2026-06-21 at 1.43.17 AM.png
+assets/images/proof/Screenshot 2026-06-23 at 3.33.30 AM.png
+assets/images/proof/Screenshot 2026-06-23 at 3.40.03 AM.png
+assets/images/proof/Screenshot 2026-06-23 at 3.41.27 AM.png
+assets/images/proof/Screenshot 2026-06-23 at 3.44.54 AM.png
+assets/images/proof/Screenshot 2026-06-23 at 3.47.57 AM.png
+assets/images/proof/Screenshot 2026-06-23 at 3.48.07 AM.png
+assets/images/proof/Screenshot 2026-06-23 at 3.49.30 AM.png
+assets/js/main.js
+assets/video/bg.mp4
+assets/video/bg.webm
