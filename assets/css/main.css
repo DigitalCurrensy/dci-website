@@ -1199,3 +1199,233 @@ header a:hover,
 .nr a:hover {
   color: #ffffff !important;
 }
+
+/* PATCH 1P — premium chrome luster, neutral tone layer, better GIF framing */
+
+/* Reframe hero GIF to reduce aggressive crop while keeping full-screen feel */
+section.hero {
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(1,2,4,.18) 0%,
+      rgba(1,2,4,.04) 32%,
+      rgba(1,2,4,.10) 58%,
+      rgba(1,2,4,.34) 100%
+    ),
+    url("/assets/gifs/hero-bg.gif?v=luster1") !important;
+  background-size: cover, cover !important;
+  background-position: center center, center 44% !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-blend-mode: normal, normal !important;
+}
+
+/* Reframe bottom CTA GIF: full-screen but less harsh crop */
+.finalcta {
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(1,2,4,.20) 0%,
+      rgba(1,2,4,.05) 34%,
+      rgba(1,2,4,.12) 62%,
+      rgba(1,2,4,.36) 100%
+    ),
+    url("/assets/gifs/release-bg.gif?v=luster1") !important;
+  background-size: cover, cover !important;
+  background-position: center center, center 46% !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-blend-mode: normal, normal !important;
+}
+
+/* Neutral cinematic balancing layer — no green wash */
+section.hero::before,
+.finalcta::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  opacity: 1 !important;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(255,255,255,.05), transparent 24%),
+    radial-gradient(circle at 50% 50%, transparent 0%, rgba(1,2,4,.18) 68%, rgba(1,2,4,.42) 100%),
+    linear-gradient(90deg, rgba(1,2,4,.34), transparent 28%, transparent 72%, rgba(1,2,4,.34)) !important;
+}
+
+/* Silver sparkle/luster dust — subtle, premium, not glittery */
+section.hero::after,
+.finalcta::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  opacity: .34 !important;
+  mix-blend-mode: screen !important;
+  background-image:
+    radial-gradient(circle at 18% 24%, rgba(255,255,255,.42) 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 18%, rgba(255,255,255,.34) 0 1px, transparent 2px),
+    radial-gradient(circle at 83% 64%, rgba(255,255,255,.28) 0 1px, transparent 2px),
+    radial-gradient(circle at 34% 72%, rgba(255,255,255,.25) 0 1px, transparent 2px),
+    linear-gradient(115deg, transparent 0%, rgba(255,255,255,.07) 43%, rgba(255,255,255,.20) 50%, rgba(255,255,255,.06) 57%, transparent 100%) !important;
+  background-size:
+    220px 220px,
+    280px 280px,
+    340px 340px,
+    260px 260px,
+    260% 100% !important;
+  background-position:
+    0 0,
+    40px 70px,
+    120px 20px,
+    80px 120px,
+    0% 50% !important;
+  animation: dciLusterSweep 7s ease-in-out infinite alternate !important;
+}
+
+/* Keep all hero and CTA content above the balancing/sparkle layers */
+section.hero > *,
+.finalcta > * {
+  position: relative !important;
+  z-index: 4 !important;
+}
+
+/* Stronger chrome shine — brighter highs, darker cuts */
+.hero h1,
+.finalcta h2,
+.chrome {
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #fbfcfc 8%,
+      #bfc4c7 17%,
+      #ffffff 29%,
+      #747b7f 43%,
+      #f7f9f9 52%,
+      #9ea5a8 63%,
+      #ffffff 76%,
+      #d6dadc 88%,
+      #ffffff 100%
+    ) !important;
+  background-size: 230% 100% !important;
+  background-position: 0% 50% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-text-stroke: .42px rgba(255,255,255,.42) !important;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.46),
+    0 0 16px rgba(255,255,255,.22),
+    0 0 36px rgba(255,255,255,.08),
+    0 22px 58px rgba(0,0,0,.78) !important;
+  filter:
+    drop-shadow(0 0 8px rgba(255,255,255,.14))
+    drop-shadow(0 18px 32px rgba(0,0,0,.54)) !important;
+  animation: dciChromeSweep 5.8s ease-in-out infinite alternate !important;
+}
+
+/* Bright white supporting text */
+.hero .sub,
+.hero .supp,
+.finalcta p,
+.finalcta .sub,
+.finalcta .supp {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow:
+    0 1px 10px rgba(0,0,0,.92),
+    0 8px 26px rgba(0,0,0,.72) !important;
+}
+
+/* Bright pill text, green only as accent */
+.hero .hpills span,
+.hpills span {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: rgba(1,2,4,.40) !important;
+  border-color: rgba(0,190,124,.62) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.045),
+    0 0 18px rgba(0,0,0,.28) !important;
+}
+
+/* Button text should stay crisp */
+.btn,
+.btn-green,
+.pill,
+.login {
+  text-shadow: 0 1px 8px rgba(0,0,0,.38) !important;
+}
+
+/* Header readability over bright GIF frames */
+header {
+  background: linear-gradient(180deg, rgba(1,2,4,.52), rgba(1,2,4,.18)) !important;
+  backdrop-filter: blur(8px) saturate(112%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(112%) !important;
+}
+
+header a,
+.nl a,
+.nr a {
+  color: rgba(255,255,255,.90) !important;
+}
+
+header a:hover,
+.nl a:hover,
+.nr a:hover {
+  color: #ffffff !important;
+}
+
+/* Mobile / tighter screens: pull GIF framing down slightly to keep heads in-frame */
+@media (max-width: 900px) {
+  section.hero {
+    background-position: center center, center 42% !important;
+  }
+
+  .finalcta {
+    background-position: center center, center 44% !important;
+  }
+}
+
+@keyframes dciChromeSweep {
+  0% {
+    background-position: 0% 50%;
+    filter:
+      drop-shadow(0 0 7px rgba(255,255,255,.10))
+      drop-shadow(0 18px 32px rgba(0,0,0,.54));
+  }
+
+  100% {
+    background-position: 100% 50%;
+    filter:
+      drop-shadow(0 0 16px rgba(255,255,255,.22))
+      drop-shadow(0 18px 32px rgba(0,0,0,.54));
+  }
+}
+
+@keyframes dciLusterSweep {
+  0% {
+    background-position:
+      0 0,
+      40px 70px,
+      120px 20px,
+      80px 120px,
+      0% 50%;
+    opacity: .22;
+  }
+
+  100% {
+    background-position:
+      20px 12px,
+      60px 86px,
+      100px 34px,
+      96px 104px,
+      100% 50%;
+    opacity: .38;
+  }
+}
