@@ -789,3 +789,179 @@ section:not(.hero):not(.finalcta),
 footer {
   background-color: #010204 !important;
 }
+
+/* PATCH 1M — final full-screen GIF system */
+
+/* Midnight canvas */
+html,
+body {
+  background: #010204 !important;
+}
+
+/* HERO: full-screen cinematic background, content centered over it */
+section.hero {
+  position: relative !important;
+  min-height: 100svh !important;
+  height: 100svh !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background: #010204 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 108px var(--pad) 96px !important;
+}
+
+/* Full-bleed hero GIF */
+section.hero > .hero-bg-gif {
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  z-index: 0 !important;
+  width: 100vw !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  opacity: 1 !important;
+  filter: grayscale(1) brightness(.82) contrast(1.08) saturate(.9) !important;
+  transform: translateX(-50%) scale(1.02) !important;
+  pointer-events: none !important;
+}
+
+/* No color wash overlays. Green stays accent only. */
+section.hero > .hero-bg-overlay,
+.hero-bg-overlay,
+section.hero::before,
+section.hero::after,
+.hero::before,
+.hero::after {
+  display: none !important;
+  opacity: 0 !important;
+  background: none !important;
+  content: none !important;
+}
+
+/* Hero content above GIF */
+section.hero > *:not(.hero-bg-gif):not(.hero-bg-overlay) {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* Readability through shadow only, no green overlay */
+.hero h1,
+.hero .sub,
+.hero .supp,
+.hero .hpills,
+.hero .ctas,
+.hero .hcoin,
+.hero .scroll {
+  text-shadow:
+    0 2px 18px rgba(0,0,0,.76),
+    0 18px 54px rgba(0,0,0,.52) !important;
+}
+
+/* Professional chrome headline */
+.hero h1,
+.finalcta h2,
+.chrome {
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #dfe1e2 15%,
+      #8b9093 34%,
+      #f7f8f8 49%,
+      #666c6f 61%,
+      #d0d3d4 78%,
+      #ffffff 100%
+    ) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Green only as accent */
+.hpills span,
+.price-hl span,
+.iq-badge,
+.btn-green,
+.pill {
+  border-color: rgba(0, 190, 124, .48) !important;
+}
+
+/* Ticker locked to hero bottom edge */
+.hero + .marq {
+  position: relative !important;
+  z-index: 8 !important;
+  margin-top: -48px !important;
+  background: rgba(1,2,4,.92) !important;
+  backdrop-filter: blur(10px) saturate(112%);
+  -webkit-backdrop-filter: blur(10px) saturate(112%);
+  border-top: 1px solid rgba(255,255,255,.08) !important;
+  border-bottom: 1px solid rgba(255,255,255,.08) !important;
+}
+
+/* BOTTOM CTA: full-screen background section */
+.finalcta {
+  position: relative !important;
+  min-height: 100svh !important;
+  height: 100svh !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background: #010204 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 96px var(--pad) !important;
+}
+
+/* Full-bleed bottom GIF */
+.finalcta > .release-bg-gif {
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  z-index: 0 !important;
+  width: 100vw !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  opacity: 1 !important;
+  filter: grayscale(1) brightness(.82) contrast(1.08) saturate(.9) !important;
+  transform: translateX(-50%) scale(1.02) !important;
+  pointer-events: none !important;
+}
+
+/* No green/dark overlay on bottom CTA */
+.finalcta::before,
+.finalcta::after {
+  display: none !important;
+  opacity: 0 !important;
+  background: none !important;
+  content: none !important;
+}
+
+.finalcta > *:not(.release-bg-gif) {
+  position: relative !important;
+  z-index: 3 !important;
+  text-shadow:
+    0 2px 18px rgba(0,0,0,.76),
+    0 18px 54px rgba(0,0,0,.52) !important;
+}
+
+/* Everything else stays midnight black */
+section:not(.hero):not(.finalcta),
+footer {
+  background-color: #010204 !important;
+}
+
