@@ -329,188 +329,37 @@
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rev{opacity:1;transform:none}}
   :focus-visible{outline:2px solid var(--green-lite);outline-offset:3px}
 
-/* PATCH 1B — DCI feedback fixes: midnight-black field + visible hero video */
-:root {
-  --black: #010204;
-  --near: #040607;
-  --char: #080B0D;
-}
-
-html,
-body {
-  background: #010204 !important;
-}
-
-body::before {
-  opacity: .025;
-}
-
-.hero,
-section,
-footer {
-  background-color: #010204;
-}
-
-.hbg video {
-  opacity: .72;
-  filter: brightness(.78) contrast(1.18) saturate(1.08);
-  transform: scale(1.045);
-}
-
-.hbg::after {
-  background:
-    radial-gradient(circle at 50% 38%, rgba(15,107,69,.18), transparent 32%),
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.42),
-      rgba(0,0,0,.20) 40%,
-      rgba(1,2,4,.72) 76%,
-      rgba(1,2,4,.97)
-    );
-}
-
-.num,
-.svc,
-.lane,
-.plrow,
-.soc,
-.pcard,
-.gptitem,
-.fcard,
-.partgrid .pc {
-  background-color: #010204;
-}
-
-.marq,
-footer,
-.finalcta {
-  background-color: #040607;
-}
-
-.frame,
-.iqshot,
-.pcardx,
-.gpt-card,
-.featurecard {
-  background-color: rgba(4, 6, 7, .88);
-}
-
-/* PATCH 1D — stronger cinematic background visibility */
-.hbg {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  opacity: 1 !important;
-  z-index: 0;
-}
-
-.hbg video,
-.hbg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 1 !important;
-  filter: grayscale(1) brightness(.62) contrast(1.28) saturate(.9) !important;
-  transform: scale(1.04);
-}
-
-.hbg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 50% 42%, rgba(0, 122, 74, .13), transparent 30%),
-    linear-gradient(90deg, rgba(1,2,4,.88), rgba(1,2,4,.38) 42%, rgba(1,2,4,.88)),
-    linear-gradient(180deg, rgba(1,2,4,.36), rgba(1,2,4,.22) 38%, rgba(1,2,4,.82) 82%, #010204 100%) !important;
-  pointer-events: none;
-}
-
-.hero {
-  background: #010204 !important;
-}
-
-section,
-footer,
-.finalcta,
-.marq {
-  background-color: #010204 !important;
-}
-
-/* PATCH 1E — force MP4-first hero visibility, keep site midnight */
-.hbg {
-  position: absolute !important;
-  inset: 0 !important;
-  opacity: 1 !important;
-  overflow: hidden !important;
-  z-index: 0 !important;
-}
-
-.hbg video {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  opacity: .82 !important;
-  filter: grayscale(1) brightness(.82) contrast(1.18) saturate(.95) !important;
-  transform: scale(1.035) !important;
-}
-
-.hbg::after {
-  content: "" !important;
-  position: absolute !important;
-  inset: 0 !important;
-  pointer-events: none !important;
-  background:
-    radial-gradient(circle at 50% 40%, rgba(0, 122, 74, .10), transparent 34%),
-    linear-gradient(90deg, rgba(1,2,4,.72), rgba(1,2,4,.22) 45%, rgba(1,2,4,.72)),
-    linear-gradient(180deg, rgba(1,2,4,.22), rgba(1,2,4,.12) 38%, rgba(1,2,4,.62) 82%, #010204 100%) !important;
-}
-
-.hero > *:not(.hbg) {
-  position: relative;
-  z-index: 2;
-}
-
-.hero {
-  background: #010204 !important;
-}
-
-section,
-footer,
-.finalcta,
-.marq {
-  background-color: #010204 !important;
-}
-
-/* PATCH 1F — final hero video visibility lock */
+/* PATCH 1G — clean final hero video layer */
 .hero {
   position: relative !important;
+  min-height: 100svh !important;
   overflow: hidden !important;
-  background: #010204 !important;
   isolation: isolate !important;
+  background: #010204 !important;
 }
 
 .hero .hbg {
   position: absolute !important;
   inset: 0 !important;
-  z-index: 0 !important;
+  z-index: 1 !important;
   opacity: 1 !important;
   overflow: hidden !important;
   pointer-events: none !important;
-  background: #010204 !important;
+  background: transparent !important;
 }
 
 .hero .hbg video {
   position: absolute !important;
   inset: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
+  width: 100% !important;
+  height: 100% !important;
   min-width: 100% !important;
   min-height: 100% !important;
   object-fit: cover !important;
+  object-position: center center !important;
   display: block !important;
-  opacity: .86 !important;
-  filter: grayscale(1) brightness(.76) contrast(1.16) saturate(.92) !important;
+  opacity: 1 !important;
+  filter: grayscale(1) brightness(.72) contrast(1.16) saturate(.92) !important;
   transform: scale(1.02) !important;
 }
 
@@ -518,28 +367,17 @@ footer,
   content: "" !important;
   position: absolute !important;
   inset: 0 !important;
+  z-index: 2 !important;
   pointer-events: none !important;
   background:
     radial-gradient(circle at 50% 40%, rgba(0, 118, 73, .10), transparent 34%),
-    linear-gradient(90deg, rgba(1,2,4,.56), rgba(1,2,4,.14) 45%, rgba(1,2,4,.58)),
-    linear-gradient(180deg, rgba(1,2,4,.18), rgba(1,2,4,.10) 42%, rgba(1,2,4,.62) 82%, #010204 100%) !important;
+    linear-gradient(90deg, rgba(1,2,4,.48), rgba(1,2,4,.10) 45%, rgba(1,2,4,.50)),
+    linear-gradient(180deg, rgba(1,2,4,.16), rgba(1,2,4,.06) 42%, rgba(1,2,4,.54) 82%, #010204 100%) !important;
 }
 
 .hero > *:not(.hbg) {
   position: relative !important;
-  z-index: 3 !important;
-}
-
-.hero h1,
-.hero p,
-.hero .sub,
-.hero .eyebrow,
-.hero .chips,
-.hero .cta,
-.hero .scroll,
-.hero a,
-.hero button {
-  opacity: 1 !important;
+  z-index: 4 !important;
 }
 
 section,
@@ -547,4 +385,106 @@ footer,
 .finalcta,
 .marq {
   background-color: #010204 !important;
+}
+
+
+/* PATCH 1H — direct structural hero video fix */
+.hero {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background: #010204 !important;
+}
+
+.hero-bg-video {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  opacity: 1 !important;
+  filter: none !important;
+  transform: scale(1.01) !important;
+  pointer-events: none !important;
+}
+
+.hero::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(0, 118, 73, .08), transparent 34%),
+    linear-gradient(90deg, rgba(1,2,4,.42), rgba(1,2,4,.06) 45%, rgba(1,2,4,.42)),
+    linear-gradient(180deg, rgba(1,2,4,.08), rgba(1,2,4,.04) 42%, rgba(1,2,4,.55) 82%, #010204 100%) !important;
+}
+
+.hero > *:not(.hero-bg-video) {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+section:not(.hero),
+footer,
+.finalcta,
+.marq {
+  background-color: #010204 !important;
+}
+
+/* PATCH 1J — remove hero video dark overlay and lift ticker */
+section.hero > .hero-bg-video,
+.hero-bg-video {
+  opacity: 1 !important;
+  filter: grayscale(1) brightness(.92) contrast(1.05) saturate(.95) !important;
+}
+
+section.hero > .hero-bg-overlay,
+.hero-bg-overlay {
+  display: none !important;
+  opacity: 0 !important;
+  background: none !important;
+}
+
+section.hero::before,
+section.hero::after,
+.hero::before,
+.hero::after {
+  display: none !important;
+  opacity: 0 !important;
+  background: none !important;
+  content: none !important;
+}
+
+/* Keep hero content readable without placing a full dark layer over the video */
+section.hero > *:not(.hero-bg-video):not(.hero-bg-overlay) {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+.hero h1,
+.hero .sub,
+.hero .supp,
+.hero .hpills,
+.hero .ctas,
+.hero .hcoin,
+.hero .scroll {
+  text-shadow: 0 2px 22px rgba(0,0,0,.72);
+}
+
+/* Move ticker upward so it feels attached to the hero */
+.hero + .marq {
+  position: relative !important;
+  z-index: 6 !important;
+  margin-top: -46px !important;
+  background: rgba(1,2,4,.82) !important;
+  backdrop-filter: blur(10px) saturate(115%);
+  -webkit-backdrop-filter: blur(10px) saturate(115%);
+  border-top: 1px solid rgba(255,255,255,.08) !important;
+  border-bottom: 1px solid rgba(255,255,255,.08) !important;
 }
