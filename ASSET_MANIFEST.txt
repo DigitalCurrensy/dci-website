@@ -1,7 +1,51 @@
-assets/css/main.css
+_live-site-reference/public/assets/images/about/artist-team.jpg
+_live-site-reference/public/assets/images/about/dci-about-luxury-studio.png
+_live-site-reference/public/assets/images/about/distribution-dashboard.jpg
+_live-site-reference/public/assets/images/about/studio-session.jpg
+_live-site-reference/public/assets/images/hero/dci-dashboard-preview.png
+_live-site-reference/public/assets/images/hero/dci-hero-artist.jpg
+_live-site-reference/public/assets/images/hero/dci-hero-luxury-studio.png
+_live-site-reference/public/assets/images/hero/dci-image-header.png
+_live-site-reference/public/assets/images/labeliq/ai-song-generator.jpg
+_live-site-reference/public/assets/images/labeliq/ai-video-generator.jpg
+_live-site-reference/public/assets/images/labeliq/creator-token-dashboard.jpg
+_live-site-reference/public/assets/images/labeliq/labeliq-ai-platform-preview.png
+_live-site-reference/public/assets/images/labeliq/labeliq-platform-preview.png
+_live-site-reference/public/assets/images/playlists/global-motion.jpg
+_live-site-reference/public/assets/images/playlists/heat-check.jpg
+_live-site-reference/public/assets/images/playlists/image (55).jpg
+_live-site-reference/public/assets/images/playlists/image (57).jpg
+_live-site-reference/public/assets/images/playlists/image (58).jpg
+_live-site-reference/public/assets/images/playlists/image (59).jpg
+_live-site-reference/public/assets/images/playlists/image (60).jpg
+_live-site-reference/public/assets/images/playlists/image (61).jpg
+_live-site-reference/public/assets/images/playlists/late-nights.jpg
+_live-site-reference/public/assets/images/playlists/next-wave.jpg
+_live-site-reference/public/assets/images/playlists/rap-selects.jpg
+_live-site-reference/public/assets/images/playlists/the-come-up.jpg
+_live-site-reference/public/assets/images/services/dci-service-music-distribution.png
+_live-site-reference/public/assets/images/services/dci-service-playlist-review.png
+_live-site-reference/public/assets/images/services/dci-service-video-ai-visuals.png
+_live-site-reference/public/assets/images/services/distribution.jpg
+_live-site-reference/public/assets/images/services/label-services.jpg
+_live-site-reference/public/assets/images/services/playlists.jpg
+_live-site-reference/public/assets/images/services/royalties.jpg
+_live-site-reference/public/assets/images/services/sync.jpg
+_live-site-reference/public/assets/images/services/video-content.jpg
+_live-site-reference/public/assets/images/video/ai-music-video-placeholder.jpg
+_live-site-reference/public/assets/images/video/official-video-placeholder.jpg
+_live-site-reference/public/assets/images/video/short-form-video-placeholder.jpg
+_live-site-reference/public/assets/logo/dci-coin-depth.png
+_live-site-reference/public/assets/logo/dci-coin-light.png
+_live-site-reference/public/assets/logo/dci-logo-2026.jpg
+_live-site-reference/public/assets/videos/dci-about-studio-video.mp4
+_live-site-reference/public/assets/videos/dci-ai-mv-preview.mp4
+_live-site-reference/public/assets/videos/hero/dci-hero-loop.mp4
+_live-site-reference/public/assets/videos/labeliq/labeliq-demo.mp4
+_live-site-reference/public/assets/videos/video-content/showreel-placeholder.mp4
+_live-site-reference/public/og-image.jpg
 assets/gifs/hero-bg.gif
 assets/gifs/release-bg.gif
-assets/images/.DS_Store
 assets/images/proof/image (55).jpg
 assets/images/proof/image (57).jpg
 assets/images/proof/image (58).jpg
@@ -20,6 +64,8 @@ assets/images/proof/Screenshot 2026-06-23 at 3.44.54 AM.png
 assets/images/proof/Screenshot 2026-06-23 at 3.47.57 AM.png
 assets/images/proof/Screenshot 2026-06-23 at 3.48.07 AM.png
 assets/images/proof/Screenshot 2026-06-23 at 3.49.30 AM.png
-assets/js/main.js
 assets/video/bg.mp4
 assets/video/bg.webm
+bg.mp4
+bg.webm
+whitepaper.pdf
