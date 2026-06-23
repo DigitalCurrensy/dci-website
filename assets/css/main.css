@@ -1602,3 +1602,191 @@ header a:hover,
     grid-template-columns: 1fr;
   }
 }
+
+
+/* PATCH 2E — whitepaper, press cards, playlist covers, social links */
+
+/* Whitepaper visible PDF front */
+.whitepaper-preview-card {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 360px;
+  margin: 18px 0 28px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.14);
+  background: #f5f5f5;
+  box-shadow: 0 24px 70px rgba(0,0,0,.52);
+}
+
+.whitepaper-preview-card object {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  background: #ffffff;
+  pointer-events: none;
+}
+
+.whitepaper-preview-label {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 4;
+  padding: 9px 13px;
+  border: 1px solid rgba(0,190,124,.60);
+  border-radius: 999px;
+  background: rgba(1,2,4,.78);
+  color: #ffffff;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+/* Press images fit cards correctly */
+.proof-card-media {
+  width: 100%;
+  margin: 0 0 22px;
+  display: block;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.14);
+  background: #050607;
+  box-shadow: 0 20px 70px rgba(0,0,0,.48);
+}
+
+.proof-card-media img {
+  width: 100%;
+  display: block;
+}
+
+.proof-card-media-influencive {
+  height: auto;
+  max-height: none;
+}
+
+.proof-card-media-influencive img {
+  height: auto;
+  max-height: 330px;
+  object-fit: contain;
+  object-position: center center;
+  background: #060708;
+}
+
+.proof-card-media-rollingstone img {
+  height: 360px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* RMR campaign cover art */
+.rascal-cover-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 340px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #010204;
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.rascal-cover-art {
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  max-height: 460px;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  filter: contrast(1.05) saturate(1.04);
+}
+
+.campaign-media-label {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 3;
+  padding: 8px 12px;
+  border: 1px solid rgba(0,190,124,.48);
+  color: #ffffff;
+  background: rgba(1,2,4,.70);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+/* Playlist email note */
+.playlist-submit-note {
+  margin: 10px 0 28px;
+  color: #ffffff !important;
+  opacity: .94;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.playlist-submit-note a {
+  color: #ffffff !important;
+  text-decoration: underline;
+  text-decoration-color: rgba(0,190,124,.72);
+  text-underline-offset: 4px;
+}
+
+/* Playlist cover images injected by runtime */
+.playlist-card-with-cover {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.playlist-card-with-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 34% 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(180deg, rgba(1,2,4,.05), rgba(1,2,4,.72)),
+    var(--playlist-cover);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: .95;
+}
+
+.playlist-card-with-cover > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hard-hide surviving submit buttons */
+.playlist-submit-hidden,
+a[data-remove-submit="true"],
+button[data-remove-submit="true"] {
+  display: none !important;
+}
+
+/* Clickable social/audience cards */
+.audience-social-clickable {
+  cursor: pointer;
+  transition: border-color .22s ease, background-color .22s ease, transform .22s ease;
+}
+
+.audience-social-clickable:hover {
+  border-color: rgba(0,190,124,.62) !important;
+  background-color: rgba(0,190,124,.035) !important;
+  transform: translateY(-1px);
+}
+
+footer a[href^="http"],
+.fc a[href^="http"] {
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .whitepaper-preview-card {
+    height: 290px;
+  }
+
+  .proof-card-media-rollingstone img {
+    height: 260px;
+  }
+}

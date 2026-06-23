@@ -92,3 +92,167 @@ const FRAMES=[
     grid.innerHTML=PL.grid.map(p=>`<a class="plrow" href="${p.link}" target="_blank" rel="noopener"><span class="pn">${p.name}</span><span class="meta"><span class="pg">${p.genre}</span><span class="pl">${fmt(p.foll)} ▸</span></span></a>`).join('');
     document.getElementById('plcount').textContent=(PL.featured.length+PL.grid.length)+' curated playlists · live on Spotify';
   })();
+
+
+/* PATCH 2E runtime — force final DCI content corrections */
+(function () {
+  const playlistCovers = {
+  "Heat Check": "/assets/images/proof/Screenshot%202026-06-21%20at%201.43.17%E2%80%AFAM.png",
+  "New Wave Hits": "/assets/images/proof/Screenshot%202026-06-23%20at%203.40.03%E2%80%AFAM.png",
+  "New West Coast Rap": "/assets/images/proof/image%20%2857%29.jpg",
+  "New Age Country": "/assets/images/proof/image%20%2861%29.jpg",
+  "Gamer Vibes": "/assets/images/proof/image%20%2860%29.jpg",
+  "Almost Major": "/assets/images/proof/Screenshot%202026-06-23%20at%203.49.30%E2%80%AFAM.png"
+};
+  const socialUrls = {
+  "Instagram": "https://www.instagram.com/DigitalCurrensy/",
+  "Facebook": "https://www.facebook.com/DigitalCurrensy",
+  "YouTube": "https://www.youtube.com/user/AdriandSwish/videos",
+  "TikTok": "https://www.tiktok.com/@digitalcurrensY",
+  "Audiomack": "https://audiomack.com/artist/digitalcurrensy-inc",
+  "SoundCloud": "https://soundcloud.com/digitalcurrensy",
+  "Spotify": "https://open.spotify.com/user/o68zf3dv2k2kulbgn4q04u853?si=HokI2nNrTueYKwYGCGlhtA"
+};
+
+  function clean(value) {
+    return String(value || "").replace(/\s+/g, " ").trim();
+  }
+
+  function removeSubmitButtons() {
+    document.querySelectorAll("a, button").forEach((el) => {
+      const text = clean(el.textContent).toLowerCase();
+      const href = String(el.getAttribute("href") || "").toLowerCase();
+
+      if (
+        text === "submit" ||
+        text.includes("submit") ||
+        text.includes("daily playlist") ||
+        ((href.includes("playlist") || href.includes("daily")) && href.includes("distro.digitalcurrensy"))
+      ) {
+        el.setAttribute("data-remove-submit", "true");
+        el.classList.add("playlist-submit-hidden");
+        el.remove();
+      }
+    });
+  }
+
+  function findCard(heading) {
+    let node = heading.parentElement;
+    for (let i = 0; i < 8 && node; i += 1) {
+      const t = clean(node.textContent);
+      if (
+        t.includes("LISTEN") ||
+        t.includes("Spotify") ||
+        t.includes("HIP-HOP") ||
+        t.includes("POP") ||
+        t.includes("COUNTRY") ||
+        t.includes("GAMER")
+      ) {
+        return node;
+      }
+      node = node.parentElement;
+    }
+    return heading.closest("article, section, div");
+  }
+
+  function applyPlaylistCovers() {
+    Object.entries(playlistCovers).forEach(([title, src]) => {
+      const heading = Array.from(document.querySelectorAll("h2, h3, h4")).find((el) => clean(el.textContent) === title);
+      if (!heading) return;
+
+      const card = findCard(heading);
+      if (!card) return;
+
+      card.classList.add("playlist-card-with-cover");
+      card.style.setProperty("--playlist-cover", `url("${src}")`);
+    });
+  }
+
+  function updateAudienceStats() {
+    const instagram = Array.from(document.querySelectorAll("*")).find((el) => clean(el.textContent) === "7.6K+ FOLLOWERS");
+    if (instagram) instagram.textContent = "13.5K+ FOLLOWERS";
+
+    const youtube = Array.from(document.querySelectorAll("*")).find((el) => clean(el.textContent).includes("7.8K+ SUBS"));
+    if (youtube) youtube.textContent = "10K+ SUBSCRIBERS";
+
+    const audiomack = Array.from(document.querySelectorAll("*")).find((el) => clean(el.textContent) === "8M+ PLAYS");
+    if (audiomack) audiomack.textContent = "8MM+ PLAYS";
+  }
+
+  function makeFooterLinksCorrect() {
+    Object.entries(socialUrls).forEach(([platform, href]) => {
+      document.querySelectorAll("a").forEach((a) => {
+        if (clean(a.textContent).toLowerCase() === platform.toLowerCase()) {
+          a.setAttribute("href", href);
+          a.setAttribute("target", "_blank");
+          a.setAttribute("rel", "noopener");
+        }
+      });
+    });
+  }
+
+  function makeAudienceCardsClickable() {
+    Object.entries(socialUrls).forEach(([platform, href]) => {
+      const heading = Array.from(document.querySelectorAll("h2, h3, h4, div, span")).find((el) => clean(el.textContent) === platform);
+      if (!heading) return;
+
+      let card = heading.parentElement;
+      for (let i = 0; i < 6 && card; i += 1) {
+        const t = clean(card.textContent);
+        if (
+          card !== heading &&
+          t.includes(platform) &&
+          (
+            t.includes("FOLLOWERS") ||
+            t.includes("PLAYS") ||
+            t.includes("SUBSCRIBERS") ||
+            t.includes("VIEWS") ||
+            t.includes("LIVE") ||
+            t.includes("LIKES")
+          )
+        ) {
+          break;
+        }
+        card = card.parentElement;
+      }
+
+      if (!card) return;
+
+      card.classList.add("audience-social-clickable");
+      card.setAttribute("role", "link");
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("data-social-url", href);
+
+      if (!card.dataset.clickReady) {
+        card.dataset.clickReady = "true";
+        card.addEventListener("click", () => window.open(href, "_blank", "noopener"));
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            window.open(href, "_blank", "noopener");
+          }
+        });
+      }
+    });
+  }
+
+  function runDciFixes() {
+    removeSubmitButtons();
+    applyPlaylistCovers();
+    updateAudienceStats();
+    makeFooterLinksCorrect();
+    makeAudienceCardsClickable();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", runDciFixes);
+  } else {
+    runDciFixes();
+  }
+
+  setTimeout(runDciFixes, 400);
+  setTimeout(runDciFixes, 1200);
+
+  const observer = new MutationObserver(() => removeSubmitButtons());
+  observer.observe(document.documentElement, { childList: true, subtree: true });
+})();
