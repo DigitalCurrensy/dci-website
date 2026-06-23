@@ -488,3 +488,304 @@ section.hero > *:not(.hero-bg-video):not(.hero-bg-overlay) {
   border-top: 1px solid rgba(255,255,255,.08) !important;
   border-bottom: 1px solid rgba(255,255,255,.08) !important;
 }
+
+/* PATCH 1K — GIF backgrounds, no green overlay, chrome system */
+section.hero {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background: #010204 !important;
+  padding-bottom: 128px !important;
+}
+
+.hero-bg-gif {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  z-index: 0 !important;
+  opacity: 1 !important;
+  filter: grayscale(1) brightness(.86) contrast(1.08) saturate(.92) !important;
+  transform: scale(1.01) !important;
+  pointer-events: none !important;
+}
+
+/* Remove green/dark wash from hero overlays */
+section.hero > .hero-bg-overlay,
+.hero-bg-overlay,
+section.hero::before,
+section.hero::after,
+.hero::before,
+.hero::after {
+  display: none !important;
+  opacity: 0 !important;
+  background: none !important;
+  content: none !important;
+}
+
+section.hero > *:not(.hero-bg-gif):not(.hero-bg-overlay) {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* Keep green as accent only */
+.hero h1,
+.hero .sub,
+.hero .supp,
+.hero .hpills,
+.hero .ctas,
+.hero .hcoin,
+.hero .scroll {
+  text-shadow: 0 2px 22px rgba(0,0,0,.64) !important;
+}
+
+/* Premium chrome typography */
+.chrome,
+.hero h1,
+.finalcta h2 {
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #d7d9da 17%,
+      #8d9295 34%,
+      #f7f8f8 48%,
+      #676d70 59%,
+      #cfd2d3 76%,
+      #ffffff 100%
+    ) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.22),
+    0 14px 42px rgba(0,0,0,.56) !important;
+}
+
+/* Move ticker upward so it sits on the hero edge */
+.hero + .marq {
+  position: relative !important;
+  z-index: 8 !important;
+  margin-top: -54px !important;
+  background: rgba(1,2,4,.88) !important;
+  backdrop-filter: blur(10px) saturate(112%);
+  -webkit-backdrop-filter: blur(10px) saturate(112%);
+  border-top: 1px solid rgba(255,255,255,.08) !important;
+  border-bottom: 1px solid rgba(255,255,255,.08) !important;
+}
+
+/* Bottom CTA background GIF */
+.finalcta {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background: #010204 !important;
+}
+
+.release-bg-gif {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  z-index: 0 !important;
+  opacity: .78 !important;
+  filter: grayscale(1) brightness(.78) contrast(1.12) saturate(.9) !important;
+  transform: scale(1.01) !important;
+  pointer-events: none !important;
+}
+
+.finalcta::before,
+.finalcta::after {
+  display: none !important;
+  opacity: 0 !important;
+  background: none !important;
+  content: none !important;
+}
+
+.finalcta > *:not(.release-bg-gif) {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+section:not(.hero),
+footer {
+  background-color: #010204 !important;
+}
+
+/* PATCH 1L — sync hero GIF, remove green wash, full-frame release CTA */
+
+/* Global midnight canvas */
+html,
+body {
+  background: #010204 !important;
+}
+
+/* HERO: full-screen background behavior */
+section.hero {
+  position: relative !important;
+  min-height: 100svh !important;
+  height: 100svh !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background: #010204 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 112px var(--pad) 104px !important;
+}
+
+/* Hero GIF must sit behind everything, full-bleed */
+section.hero > .hero-bg-gif {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  opacity: 1 !important;
+  filter: grayscale(1) brightness(.88) contrast(1.08) saturate(.92) !important;
+  transform: scale(1.012) !important;
+  pointer-events: none !important;
+}
+
+/* Kill all color/tint overlays on hero */
+section.hero > .hero-bg-overlay,
+.hero-bg-overlay,
+section.hero::before,
+section.hero::after,
+.hero::before,
+.hero::after {
+  display: none !important;
+  opacity: 0 !important;
+  background: none !important;
+  content: none !important;
+}
+
+/* Hero content floats above GIF */
+section.hero > *:not(.hero-bg-gif):not(.hero-bg-overlay) {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* Preserve readability with shadow only, no green wash */
+.hero h1,
+.hero .sub,
+.hero .supp,
+.hero .hpills,
+.hero .ctas,
+.hero .hcoin,
+.hero .scroll {
+  text-shadow:
+    0 2px 18px rgba(0,0,0,.72),
+    0 18px 54px rgba(0,0,0,.48) !important;
+}
+
+/* Chrome headline treatment */
+.hero h1,
+.finalcta h2 {
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #e2e3e3 15%,
+      #8f9496 34%,
+      #f7f8f8 49%,
+      #6e7476 61%,
+      #d4d6d7 78%,
+      #ffffff 100%
+    ) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Green only as accent */
+.hpills span,
+.price-hl span,
+.iq-badge,
+.btn-green,
+.pill {
+  border-color: rgba(0, 190, 124, .48) !important;
+}
+
+/* Ticker attaches to bottom edge of hero */
+.hero + .marq {
+  position: relative !important;
+  z-index: 8 !important;
+  margin-top: -54px !important;
+  background: rgba(1,2,4,.92) !important;
+  backdrop-filter: blur(10px) saturate(112%);
+  -webkit-backdrop-filter: blur(10px) saturate(112%);
+  border-top: 1px solid rgba(255,255,255,.08) !important;
+  border-bottom: 1px solid rgba(255,255,255,.08) !important;
+}
+
+/* BOTTOM CTA: show full GIF frame, not cropped */
+.finalcta {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  min-height: 86svh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #010204 !important;
+  padding: clamp(72px, 9vw, 132px) var(--pad) !important;
+}
+
+/* Full-frame bottom GIF */
+.finalcta > .release-bg-gif {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  display: block !important;
+  opacity: .92 !important;
+  filter: grayscale(1) brightness(.84) contrast(1.08) saturate(.92) !important;
+  transform: none !important;
+  pointer-events: none !important;
+  background: #010204 !important;
+}
+
+/* No green/dark overlay on bottom CTA */
+.finalcta::before,
+.finalcta::after {
+  display: none !important;
+  opacity: 0 !important;
+  background: none !important;
+  content: none !important;
+}
+
+.finalcta > *:not(.release-bg-gif) {
+  position: relative !important;
+  z-index: 2 !important;
+  text-shadow:
+    0 2px 18px rgba(0,0,0,.76),
+    0 18px 54px rgba(0,0,0,.52) !important;
+}
+
+/* Everything outside hero/CTA remains midnight black */
+section:not(.hero):not(.finalcta),
+footer {
+  background-color: #010204 !important;
+}
