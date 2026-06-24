@@ -86,7 +86,8 @@ const FRAMES=[
   (function(){
     const covers=['pcA','pcB','pcC','pcD','pcE','pcF'];
     const fc=document.getElementById('fcards');
-    fc.innerHTML=PL.featured.map((p,i)=>`<div class="fcard"><div class="cover ${covers[i%6]}"><span class="sp">Spotify</span><span class="nm">${p.name}</span></div><div class="body"><div class="gg">${p.genre}</div><p>${p.desc}</p><div class="row"><a class="listen" href="${p.link}" target="_blank" rel="noopener">Listen</a><a class="submit" href="https://dailyplaylists.com">Submit</a></div></div></div>`).join('');
+    const coverMap={"Heat Check":"assets/images/approved/playlist-heat-check.jpg","New Wave Hits":"assets/images/approved/playlist-new-wave-hits.jpg","New West Coast Rap":"assets/images/approved/playlist-new-west-coast-rap.jpg","New Age Country":"assets/images/approved/playlist-new-age-country.jpg","Gamer Vibes":"assets/images/approved/playlist-gamer-vibes.jpg","Almost Major":"assets/images/approved/playlist-almost-major.jpg"};
+    fc.innerHTML=PL.featured.map((p,i)=>`<div class="fcard"><div class="cover ${covers[i%6]}"><img src="${coverMap[p.name]||''}" alt="${p.name}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"><span class="sp">Spotify</span><span class="nm">${p.name}</span></div><div class="body"><div class="gg">${p.genre}</div><p>${p.desc}</p><div class="row"><a class="listen" href="${p.link}" target="_blank" rel="noopener">Listen</a></div></div></div>`).join('');
     const fmt=n=>n>=1000?(n/1000).toFixed(1)+'k':n;
     const grid=document.getElementById('plgrid');
     grid.innerHTML=PL.grid.map(p=>`<a class="plrow" href="${p.link}" target="_blank" rel="noopener"><span class="pn">${p.name}</span><span class="meta"><span class="pg">${p.genre}</span><span class="pl">${fmt(p.foll)} ▸</span></span></a>`).join('');
@@ -255,4 +256,25 @@ const FRAMES=[
 
   const observer = new MutationObserver(() => removeSubmitButtons());
   observer.observe(document.documentElement, { childList: true, subtree: true });
+})();
+
+
+/* FIX press card links only */
+(function(){
+  function fixPressLinks(){
+    const cards = document.querySelectorAll('#press .pcard');
+    if(cards[0]) cards[0].setAttribute('href','whitepaper.pdf');
+    if(cards[1]) cards[1].setAttribute('href','https://medium.com/@labeliqai/digital-currensy-featured-on-influencive-com-6eeeeda1d7fd');
+    if(cards[2]) cards[2].setAttribute('href','https://www.rollingstone.com/music/music-news/rmr-rascal-rascal-flatts-viral-959688/');
+  }
+
+  document.addEventListener('DOMContentLoaded', fixPressLinks);
+  window.addEventListener('load', fixPressLinks);
+
+  document.addEventListener('click', function(e){
+    const card = e.target.closest('#press .pcard');
+    if(!card) return;
+    e.preventDefault();
+    window.open(card.getAttribute('href'), '_blank', 'noopener');
+  }, true);
 })();

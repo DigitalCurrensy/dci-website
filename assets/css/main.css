@@ -1790,3 +1790,55 @@ footer a[href^="http"],
     height: 260px;
   }
 }
+
+.fcard .submit{display:none!important}
+.whitepaper-preview-card img,.proof-card-media img{width:100%;height:100%;object-fit:cover;display:block}
+.proof-card-media-rollingstone img{object-position:top center!important}
+
+
+/* force visible RMR Rascal cover */
+.rascal-fixed-screen{
+  position:relative !important;
+  overflow:hidden !important;
+  background:none !important;
+}
+.rascal-fixed-screen::before,
+.rascal-fixed-screen::after{
+  display:none !important;
+}
+.rascal-fixed-screen img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+
+
+/* final lock: RMR campaign image only, no green cycle */
+.rascal-fixed-screen,
+.rascal-fixed-screen .layer,
+.rascal-fixed-screen .ph{
+  position:relative !important;
+  overflow:hidden !important;
+  background:none !important;
+}
+
+.rascal-fixed-screen::before,
+.rascal-fixed-screen::after,
+.rascal-fixed-screen .lbl{
+  display:none !important;
+}
+
+.rascal-fixed-screen img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  z-index:999 !important;
+}
