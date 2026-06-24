@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build": "echo 'Static HTML site - no build needed'",
+    "vercel-build": "echo 'Static HTML site - no Next build needed'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
