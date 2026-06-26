@@ -308,7 +308,7 @@
   .ldoc li::before{content:"\2014";position:absolute;left:0;color:#999}
 
   /* OVERLAY NAV */
-  .ov{background:#030504;color:#f4f1ea;position:fixed;inset:0;z-index:100;background:var(--whi);color:#000;padding:var(--pad);transform:translateY(-100%);transition:transform .6s cubic-bezier(.76,0,.24,1);overflow:auto}
+  .ov{position:fixed;inset:0;z-index:100;background:#030504 !important;color:#f4f1ea !important;padding:var(--pad);transform:translateY(-100%);transition:transform .6s cubic-bezier(.76,0,.24,1);overflow:auto}
   .ov.open{transform:none}
   .ov nav{margin-top:60px;display:grid;gap:2px}
   .ov nav a{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-weight:700;font-size:15px;line-height:1.25;color:#f4f1ea;letter-spacing:.14em;text-transform:uppercase;transition:color .2s}
