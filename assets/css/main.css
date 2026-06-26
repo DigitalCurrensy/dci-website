@@ -308,11 +308,11 @@
   .ldoc li::before{content:"\2014";position:absolute;left:0;color:#999}
 
   /* OVERLAY NAV */
-  .ov{position:fixed;inset:0;z-index:100;background:var(--whi);color:#000;padding:var(--pad);transform:translateY(-100%);transition:transform .6s cubic-bezier(.76,0,.24,1);overflow:auto}
+  .ov{background:#030504;color:#f4f1ea;position:fixed;inset:0;z-index:100;background:var(--whi);color:#000;padding:var(--pad);transform:translateY(-100%);transition:transform .6s cubic-bezier(.76,0,.24,1);overflow:auto}
   .ov.open{transform:none}
-  .ov nav{margin-top:60px;display:grid;gap:4px}
-  .ov nav a{font-family:var(--disp);font-weight:500;font-size:clamp(30px,7vw,56px);line-height:1.06;color:#000;transition:color .2s}
-  .ov nav a:hover{color:var(--green)}
+  .ov nav{margin-top:60px;display:grid;gap:2px}
+  .ov nav a{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-weight:700;font-size:15px;line-height:1.25;color:#f4f1ea;letter-spacing:.14em;text-transform:uppercase;transition:color .2s}
+  .ov nav a:hover{color:#14a66a}
   .ovx{position:absolute;top:20px;right:22px;background:none;border:0;font-size:26px;cursor:pointer}
 
   @media(max-width:1080px){
@@ -1841,4 +1841,120 @@ footer a[href^="http"],
   opacity:1 !important;
   visibility:visible !important;
   z-index:999 !important;
+}
+
+/* MOBILE MENU FIX — dark branded menu, prevents default white oversized list */
+@media (max-width: 760px){
+  .mobile-menu,
+  .menu-panel,
+  .nav-menu,
+  .mobile-nav,
+  .drawer,
+  .nav-drawer{
+    background:#030504 !important;
+    color:#f4f1ea !important;
+  }
+
+  .mobile-menu a,
+  .menu-panel a,
+  .nav-menu a,
+  .mobile-nav a,
+  .drawer a,
+  .nav-drawer a{
+    color:#f4f1ea !important;
+    font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+    font-size:15px !important;
+    line-height:1.2 !important;
+    letter-spacing:.12em !important;
+    text-transform:uppercase !important;
+    text-decoration:none !important;
+    display:block !important;
+    padding:14px 0 !important;
+  }
+
+  .mobile-menu,
+  .menu-panel,
+  .nav-menu,
+  .mobile-nav,
+  .drawer,
+  .nav-drawer{
+    padding:72px 28px 32px !important;
+  }
+
+  .mobile-menu button,
+  .menu-panel button,
+  .mobile-nav button,
+  .drawer button,
+  .nav-drawer button{
+    color:#14a66a !important;
+    background:transparent !important;
+  }
+}
+
+/* REAL MOBILE OVERLAY FIX */
+@media (max-width: 760px){
+  .ov{background:#030504;color:#f4f1ea;
+    background:#030504 !important;
+    color:#f4f1ea !important;
+  }
+
+  .ov nav{
+    margin-top:60px !important;
+    display:grid !important;
+    gap:2px !important;
+  }
+
+  .ov nav a{
+    color:#f4f1ea !important;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace !important;
+    font-size:15px !important;
+    line-height:1.25 !important;
+    letter-spacing:.14em !important;
+    text-transform:uppercase !important;
+    text-decoration:none !important;
+    padding:12px 0 !important;
+  }
+
+  .ov nav a:hover{
+    color:#14a66a !important;
+  }
+
+  .ov .x,
+  .ov button{
+    color:#14a66a !important;
+    background:transparent !important;
+  }
+}
+
+/* FINAL FORCE FIX — MOBILE OVERLAY MENU */
+.ov{
+  background:#030504 !important;
+  color:#f4f1ea !important;
+}
+
+.ov.open,
+.ov.is-open,
+body.menu-open .ov{
+  background:#030504 !important;
+  color:#f4f1ea !important;
+}
+
+.ov nav a{
+  color:#f4f1ea !important;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace !important;
+  font-size:15px !important;
+  line-height:1.25 !important;
+  letter-spacing:.14em !important;
+  text-transform:uppercase !important;
+  text-decoration:none !important;
+}
+
+.ov nav a:hover{
+  color:#14a66a !important;
+}
+
+.ov .x,
+.ov button{
+  color:#14a66a !important;
+  background:transparent !important;
 }
