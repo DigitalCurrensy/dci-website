@@ -1,5 +1,15 @@
 {
+  "name": "dci-website",
+  "private": true,
+  "description": "Official Digital Currensy Inc. website — independent music distribution and label services. Static HTML on Vercel.",
+  "homepage": "https://www.digitalcurrensy.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DigitalCurrensy/dci-website.git"
+  },
   "scripts": {
+    "dev": "python3 -m http.server 3000",
+    "start": "python3 -m http.server 3000",
     "build": "echo 'Static HTML site - no build needed'",
     "vercel-build": "echo 'Static HTML site - no Next build needed'"
   },
