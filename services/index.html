@@ -85,5 +85,8 @@ f.addEventListener("submit",function(e){e.preventDefault();m.textContent="Sendin
 </script>
 </main>
 <footer class="wrap note" style="padding-block:40px">© 2026 Digital Currensy Inc. · <a href="mailto:info@digitalcurrensy.com" style="color:var(--silver)">info@digitalcurrensy.com</a></footer>
+<div id="dci-sales-agent"></div>
+<script src="/sales-agent.js" data-endpoint="/api/sales-agent" defer></script>
+<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("[data-talk]");if(!a)return;var b=document.querySelector(".dsa-b");if(b){e.preventDefault();b.click();}});</script>
 </body>
 </html>

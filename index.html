@@ -431,5 +431,8 @@
 </div>
 
   <script src="assets/js/main.js" defer></script>
+<div id="dci-sales-agent"></div>
+<script src="/sales-agent.js" data-endpoint="/api/sales-agent" defer></script>
+<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("[data-talk]");if(!a)return;var b=document.querySelector(".dsa-b");if(b){e.preventDefault();b.click();}});</script>
 </body>
 </html>
