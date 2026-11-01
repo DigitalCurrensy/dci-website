@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Submit to DCI Playlists — Digital Currensy Inc.</title>
+<meta name="description" content="Submit your track to Digital Currensy's curated Spotify playlists." />
+<link rel="canonical" href="https://www.digitalcurrensy.com/submit.html" />
+<link rel="stylesheet" href="assets/css/main.css">
+<style>
+  .sf{max-width:640px;margin:96px auto 64px;padding:0 20px}
+  .sf h1{margin-bottom:8px}.sf p.lead{opacity:.8;margin-bottom:24px}
+  .sf label{display:block;margin:16px 0 6px;font-weight:600}
+  .sf input[type=text],.sf input[type=email],.sf input[type=url],.sf select,.sf textarea{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.35);color:inherit;font:inherit}
+  .sf .chk{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-weight:400}
+  .sf .chk input{margin-top:4px}
+  .sf .hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+  .sf button{margin-top:24px;padding:14px 28px;border-radius:999px;border:0;font-weight:700;cursor:pointer}
+  .sf .msg{margin-top:16px;min-height:1.5em}
+  .sf small{display:block;opacity:.7;margin-top:18px;line-height:1.5}
+</style>
+</head>
+<body>
+<main class="sf">
+  <h1>Submit to DCI Playlists</h1>
+  <p class="lead">Send us your track for a chance at one of our 33 curated Spotify playlists. We listen to every submission. Free to submit.</p>
+  <form id="pf" novalidate>
+    <label for="name">Your name</label>
+    <input id="name" name="name" type="text" maxlength="100" autocomplete="name" required>
+    <label for="artist">Artist name</label>
+    <input id="artist" name="artist" type="text" maxlength="100" required>
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" maxlength="254" autocomplete="email" required>
+    <label for="track">Track link (Spotify, Apple Music, SoundCloud, YouTube, Audiomack, Bandcamp)</label>
+    <input id="track" name="track" type="url" maxlength="300" placeholder="https://open.spotify.com/track/..." required>
+    <label for="playlist">Playlist that fits best</label>
+    <select id="playlist" name="playlist" required>
+          <option value="">Choose a playlist</option>
+          <option value="Heat Check">Heat Check</option>
+          <option value="New Wave Hits">New Wave Hits</option>
+          <option value="New West Coast Rap">New West Coast Rap</option>
+          <option value="New Age Country">New Age Country</option>
+          <option value="Gamer Vibes">Gamer Vibes</option>
+          <option value="Almost Major">Almost Major</option>
+          <option value="Country Trap">Country Trap</option>
+          <option value="New Core Hits">New Core Hits</option>
+          <option value="Street Rap">Street Rap</option>
+          <option value="The Rap List">The Rap List</option>
+          <option value="THE 6TH MAN PLAYLIST">THE 6TH MAN PLAYLIST</option>
+          <option value="Hyper Pop vs Bedroom Pop">Hyper Pop vs Bedroom Pop</option>
+          <option value="Ladys Of Hyper Pop 2">Ladys Of Hyper Pop 2</option>
+          <option value="Internet Music Planet">Internet Music Planet</option>
+          <option value="Hyper Pop Galaxy">Hyper Pop Galaxy</option>
+          <option value="Punk Trap Sh*t">Punk Trap Sh*t</option>
+          <option value="SPANISH TRAP">SPANISH TRAP</option>
+          <option value="Major Label Discovery">Major Label Discovery</option>
+          <option value="AFRO PALETTE">AFRO PALETTE</option>
+          <option value="Hip Hop Instrumentals">Hip Hop Instrumentals</option>
+          <option value="MELODIC RAP">MELODIC RAP</option>
+          <option value="NEW R&amp;B HITS">NEW R&amp;B HITS</option>
+          <option value="EDM &amp; Techno For Eternity">EDM &amp; Techno For Eternity</option>
+          <option value="By Way Of Detroit">By Way Of Detroit</option>
+          <option value="DONT MESS WITH TEXAS">DONT MESS WITH TEXAS</option>
+          <option value="Gangsta Rap">Gangsta Rap</option>
+          <option value="Atlanta Skreets">Atlanta Skreets</option>
+          <option value="UK/NY Drill Hits">UK/NY Drill Hits</option>
+          <option value="LOFI UNIVERSE">LOFI UNIVERSE</option>
+          <option value="PLAYLIST PRINCESS">PLAYLIST PRINCESS</option>
+          <option value="AMERICANA / FOLK">AMERICANA / FOLK</option>
+          <option value="Canadian Heat">Canadian Heat</option>
+          <option value="Ladys of Hyperpop">Ladys of Hyperpop</option>
+    </select>
+    <label for="note">Anything we should know? (optional)</label>
+    <textarea id="note" name="note" rows="3" maxlength="500"></textarea>
+    <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+    <label class="chk"><input type="checkbox" name="consent_terms" required> <span>I own or control the rights to this track, I am 18 or older (or have a parent/guardian's permission), and I agree that Digital Currensy may contact me about this submission.</span></label>
+    <label class="chk"><input type="checkbox" name="consent_email"> <span>Optional: send me occasional emails about DCI playlists, distribution and releases. Unsubscribe anytime.</span></label>
+    <button type="submit">Submit track</button>
+    <div class="msg" id="msg" role="status" aria-live="polite"></div>
+  </form>
+  <small>Privacy: we use what you send only to review your track, reply to you, and (if you tick the optional box) send DCI updates. We don't sell your information. Submitting does not guarantee placement. To have your information deleted, email us via the contact on digitalcurrensy.com.</small>
+</main>
+<script>
+(function(){
+  var f=document.getElementById('pf'),m=document.getElementById('msg');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.reportValidity()){return;}
+    var fd=new FormData(f),body={};
+    fd.forEach(function(v,k){body[k]=v;});
+    body.consent_terms=!!f.consent_terms.checked;body.consent_email=!!f.consent_email.checked;
+    m.textContent='Sending...';
+    fetch('/api/playlist-submit',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)})
+      .then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});})
+      .then(function(x){
+        if(x.j&&x.j.ok){f.reset();m.textContent='Thanks! Your track is in. We listen to every submission.';}
+        else if(x.s===503){m.textContent='Submissions open soon. Please try again later.';}
+        else{m.textContent='Please check: '+((x.j&&x.j.errors)||['form']).join(', ')+'.';}
+      }).catch(function(){m.textContent='Network error. Please try again.';});
+  });
+})();
+</script>
+</body>
+</html>
