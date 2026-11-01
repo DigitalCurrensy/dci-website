@@ -67,6 +67,22 @@
 <div class="tier"><h3>Pro</h3><p>Up to 3 agents with approval-before-action steps and weekly reports.</p></div>
 </div>
 <div class="cta"><a class="btn-green" href="https://adrianswish.book.kiwilaunch.com/" target="_blank" rel="noopener">Get pricing / book a call</a><a class="btn-g" href="/contact">Contact us</a></div>
+
+<h2 id="rate-card">Get the rate card</h2>
+<p class="note">We email it to you. Use a real inbox; throwaway addresses are blocked.</p>
+<form id="rc" class="grid" style="max-width:520px;grid-template-columns:1fr" novalidate>
+<select name="card" required style="min-height:44px;border-radius:12px;background:transparent;color:var(--whi);border:1px solid var(--gun);padding:0 12px"><option value="web">Web Studio rate card</option><option value="spa">Agentic Spa rate card</option></select>
+<input name="email" type="email" required autocomplete="email" placeholder="Email" style="min-height:44px;border-radius:12px;background:transparent;color:var(--whi);border:1px solid var(--gun);padding:0 12px">
+<input name="name" required autocomplete="name" placeholder="Name" style="min-height:44px;border-radius:12px;background:transparent;color:var(--whi);border:1px solid var(--gun);padding:0 12px">
+<input name="company" autocomplete="organization" placeholder="Company (optional)" style="min-height:44px;border-radius:12px;background:transparent;color:var(--whi);border:1px solid var(--gun);padding:0 12px">
+<input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+<button class="btn-green" type="submit" style="min-height:44px;border-radius:999px;border:1px solid var(--green-lite);color:#fff;cursor:pointer">Email me the rate card</button>
+<p id="rc-msg" class="note" role="status" style="margin:0"></p>
+</form>
+<script>
+(function(){var f=document.getElementById("rc"),m=document.getElementById("rc-msg");var M={email_format:"That email doesn't look right.",email_disposable:"Please use a real inbox, not a throwaway address.",email_no_mx:"That email domain can't receive mail.",name:"Add your name.",rate_limited:"Too many tries. Wait a few minutes."};
+f.addEventListener("submit",function(e){e.preventDefault();m.textContent="Sending…";fetch("/api/rate-card",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(Object.fromEntries(new FormData(f)))}).then(function(r){return r.json()}).then(function(j){if(j.ok){f.reset();m.textContent="Check your inbox — your rate card is on its way.";}else{m.textContent=M[j.error]||"Something went wrong. Book a call instead.";}}).catch(function(){m.textContent="Something went wrong. Book a call instead.";});});})();
+</script>
 </main>
 <footer class="wrap note" style="padding-block:40px">© 2026 Digital Currensy Inc. · <a href="mailto:info@digitalcurrensy.com" style="color:var(--silver)">info@digitalcurrensy.com</a></footer>
 </body>
