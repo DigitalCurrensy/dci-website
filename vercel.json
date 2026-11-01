@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "npm run vercel-build",
-  "outputDirectory": ".",
+  "buildCommand": "node scripts/build-public.js",
+  "outputDirectory": "public",
   "redirects": [
     {
       "source": "/pricing",
