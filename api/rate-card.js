@@ -68,7 +68,7 @@ async function handle(req, env = process.env, fetchImpl = fetch, resolveMx = dns
       from: env.RATE_CARD_FROM,
       to: [d.email],
       subject: c.subject,
-      text: `Hi ${d.name},\n\nYour rate card is attached. Book a call any time: https://adrianswish.book.kiwilaunch.com/\n\n— Adrian Swish, Digital Currensy Inc.`,
+      text: `Hi ${d.name},\n\nYour rate card is attached. Reply to this email or talk to our agent on digitalcurrensy.com to set up a call.\n\n— Adrian Swish, Digital Currensy Inc.`,
       attachments: [{ filename: c.filename, content: c.b64 }],
     }),
   });
