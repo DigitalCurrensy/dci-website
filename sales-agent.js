@@ -22,6 +22,7 @@
     x.append(rc, bk, sp); f.append(inp, mic, send); p.append(hd, log, f, x);
     var btn = el("button", "dsa-b", "Talk to our agent"); btn.type = "button"; w.append(p, btn); root.appendChild(w);
     btn.onclick = function () { w.classList.toggle("o"); if (!msgs.length) add("assistant", "Hi! " + st.disclosure + " What brings you here today?"); };
+    window.DCIAgent = { open: function () { if (!w.classList.contains("o")) btn.click(); } };
     function add(role, text) { var m = el("div", "dsa-m" + (role === "user" ? " u" : ""), text); log.appendChild(m); log.scrollTop = 1e6; msgs.push({ role: role, content: text }); if (role === "assistant" && speak && window.speechSynthesis) { window.speechSynthesis.cancel(); window.speechSynthesis.speak(new SpeechSynthesisUtterance(text)); } }
     function chat(text) { add("user", text); post({ messages: msgs }).then(function (r) { add("assistant", (r && r.text) || "Sorry, something went wrong."); if (r && r.nextQuestion && r.text.indexOf(r.nextQuestion) < 0 && !/\?\s*$/.test(r.text)) add("assistant", r.nextQuestion); }).catch(function () { add("assistant", "I'm offline for a moment. Please try again."); }); }
     f.onsubmit = function (e) { e.preventDefault(); var t = inp.value.trim(); if (!t) return; inp.value = ""; chat(t); };
