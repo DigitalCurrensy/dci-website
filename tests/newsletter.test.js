@@ -98,6 +98,21 @@ test("endpoint unset fails closed with a friendly message and no network call", 
   assert.equal(calls, 0);
 });
 
+test("a rejected webhook fetch returns 502 delivery_failed", async () => {
+  resetHits();
+  let sawSignal = false;
+  const fetchImpl = async (_url, init) => {
+    sawSignal = init && init.signal instanceof AbortSignal;
+    throw new Error("network down");
+  };
+  const out = await handle(req(good, "10.4.0.1"), env, fetchImpl, mx);
+  assert.equal(out.status, 502);
+  assert.equal(out.body.ok, false);
+  assert.equal(out.body.error, "delivery_failed");
+  assert.equal(out.body.message, MESSAGES.delivery_failed);
+  assert.equal(sawSignal, true);
+});
+
 test("rate limit blocks the sixth post from one address", async () => {
   resetHits();
   let calls = 0;
@@ -122,4 +137,34 @@ test("homepage and playlist index use the same list form", () => {
   }
   const homeForm = home.slice(home.indexOf("<!-- playlist-list -->"), home.indexOf("<!-- /playlist-list -->"));
   assert.equal((homeForm.match(/<option value="/g) || []).length, 34);
+});
+
+test("the signup webhook call carries an ~8s timeout and a timeout shows the friendly error", async () => {
+  resetHits();
+  const { SIGNUP_TIMEOUT_MS } = require("../api/newsletter");
+  assert.equal(SIGNUP_TIMEOUT_MS, 8000);
+  let signal = null;
+  const fetchImpl = async (_url, init) => {
+    signal = init.signal;
+    const e = new Error("The operation was aborted due to timeout");
+    e.name = "TimeoutError";
+    throw e;
+  };
+  const out = await handle(req(good, "10.9.9.1"), env, fetchImpl, mx);
+  assert.ok(signal && typeof signal.aborted === "boolean", "fetch must get an abort signal");
+  assert.equal(out.status, 502);
+  assert.equal(out.body.message, MESSAGES.delivery_failed);
+  assert.ok(!JSON.stringify(out.body).includes("timeout"));
+  assert.ok(!JSON.stringify(out.body).includes("hooks.example.com"));
+});
+
+test("an unexpected error in the handler returns the friendly error, not a crash", async () => {
+  const handler = require("../api/newsletter");
+  const badReq = { method: "POST", get headers() { throw new Error("NEWSLETTER_WEBHOOK_URL=secret"); } };
+  const res = { code: 0, headers: {}, payload: null, setHeader(k, v) { this.headers[k] = v; }, status(c) { this.code = c; return this; }, json(b) { this.payload = b; } };
+  await handler(badReq, res);
+  assert.equal(res.code, 500);
+  assert.equal(res.payload.message, MESSAGES.delivery_failed);
+  assert.ok(!JSON.stringify(res.payload).includes("secret"));
+  assert.ok(!JSON.stringify(res.payload).includes("NEWSLETTER_WEBHOOK_URL"));
 });
