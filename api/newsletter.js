@@ -101,12 +101,18 @@ async function handle(req, env = process.env, fetchImpl = fetch, resolveMx = dns
   if (!v.ok) return { status: 400, body: { ok: false, error: v.error, message: MESSAGES[v.error] || MESSAGES.delivery_failed } };
   const url = webhookUrl(env);
   if (!url) return { status: 503, body: { ok: false, error: "not_configured", message: MESSAGES.not_configured } };
-  const sent = await fetchImpl(url, {
-    method: "POST",
-    redirect: "manual",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify(v.data),
-  });
+  let sent;
+  try {
+    sent = await fetchImpl(url, {
+      method: "POST",
+      redirect: "manual",
+      headers: { "content-type": "application/json", accept: "application/json" },
+      body: JSON.stringify(v.data),
+      signal: AbortSignal.timeout(8000),
+    });
+  } catch {
+    return { status: 502, body: { ok: false, error: "delivery_failed", message: MESSAGES.delivery_failed } };
+  }
   if (!sent || sent.ok === false) return { status: 502, body: { ok: false, error: "delivery_failed", message: MESSAGES.delivery_failed } };
   return { status: 200, body: { ok: true } };
 }

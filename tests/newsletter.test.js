@@ -98,6 +98,21 @@ test("endpoint unset fails closed with a friendly message and no network call", 
   assert.equal(calls, 0);
 });
 
+test("a rejected webhook fetch returns 502 delivery_failed", async () => {
+  resetHits();
+  let sawSignal = false;
+  const fetchImpl = async (_url, init) => {
+    sawSignal = init && init.signal instanceof AbortSignal;
+    throw new Error("network down");
+  };
+  const out = await handle(req(good, "10.4.0.1"), env, fetchImpl, mx);
+  assert.equal(out.status, 502);
+  assert.equal(out.body.ok, false);
+  assert.equal(out.body.error, "delivery_failed");
+  assert.equal(out.body.message, MESSAGES.delivery_failed);
+  assert.equal(sawSignal, true);
+});
+
 test("rate limit blocks the sixth post from one address", async () => {
   resetHits();
   let calls = 0;
