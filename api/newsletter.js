@@ -108,7 +108,7 @@ async function handle(req, env = process.env, fetchImpl = fetch, resolveMx = dns
       redirect: "manual",
       headers: { "content-type": "application/json", accept: "application/json" },
       body: JSON.stringify(v.data),
-      signal: AbortSignal.timeout(8000),
+      signal: AbortSignal.timeout(SIGNUP_TIMEOUT_MS),
     });
   } catch {
     return { status: 502, body: { ok: false, error: "delivery_failed", message: MESSAGES.delivery_failed } };
@@ -117,8 +117,16 @@ async function handle(req, env = process.env, fetchImpl = fetch, resolveMx = dns
   return { status: 200, body: { ok: true } };
 }
 
+const SIGNUP_TIMEOUT_MS = 8000;
+
 module.exports = async function (req, res) {
-  const out = await handle(req);
+  let out;
+  try {
+    out = await handle(req);
+  } catch {
+    // Never leak env names or error text to the visitor.
+    out = { status: 500, body: { ok: false, error: "delivery_failed", message: MESSAGES.delivery_failed } };
+  }
   res.setHeader("cache-control", "no-store");
   res.status(out.status).json(out.body);
 };
@@ -127,3 +135,4 @@ module.exports.validateNewsletter = validateNewsletter;
 module.exports.MESSAGES = MESSAGES;
 module.exports.resetHits = resetHits;
 module.exports.webhookUrl = webhookUrl;
+module.exports.SIGNUP_TIMEOUT_MS = SIGNUP_TIMEOUT_MS;
