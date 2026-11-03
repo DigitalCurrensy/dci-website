@@ -1,17 +1,21 @@
 "use strict";
 
-// POST /api/newsletter — one playlist email list.
-// Main has Resend for rate-card delivery, not a newsletter audience, and Resend
-// contact create has no double-opt-in flag. This list therefore posts once to
-// the founder-configured HTTPS endpoint NEWSLETTER_WEBHOOK_URL. If that tool
-// supports double opt-in, turn it on there. Unset or non-HTTPS = fail closed.
-// No date of birth is read or stored.
+// POST /api/newsletter — one playlist email list, double opt-in via Resend.
+// Primary path (all four set): RESEND_API_KEY, RESEND_AUDIENCE_ID,
+// NEWSLETTER_FROM (falls back to RATE_CARD_FROM), NEWSLETTER_CONFIRM_SECRET.
+//   1. Contact is created in the audience with unsubscribed:true (pending).
+//   2. A confirmation email carries a signed 48h link to /api/newsletter-confirm.
+//   3. Clicking it flips the contact to unsubscribed:false (see newsletter-confirm.js).
+// Legacy path: if the Resend set is incomplete but NEWSLETTER_WEBHOOK_URL is a
+// valid HTTPS URL, the old single webhook POST is used. Neither = 503 not open yet.
+// Emails and secrets are never logged. No date of birth is read or stored.
 
 const fs = require("fs");
 const path = require("path");
 const dns = require("dns").promises;
 const { parseDomainList, parseEmail, isDisposable, hasMx, clean } = require("./_lib/rateCard");
 const { names } = require("./_lib/playlists");
+const { makeToken } = require("./_lib/newsletterToken");
 
 const WINDOW_MS = 10 * 60 * 1000;
 const LIMIT = 5;
@@ -66,6 +70,52 @@ function webhookUrl(env) {
   return u.toString();
 }
 
+function resendConfig(env) {
+  const e = env || {};
+  const from = String(e.NEWSLETTER_FROM || e.RATE_CARD_FROM || "").trim();
+  if (!e.RESEND_API_KEY || !e.RESEND_AUDIENCE_ID || !from || !e.NEWSLETTER_CONFIRM_SECRET) return null;
+  return { key: e.RESEND_API_KEY, audience: e.RESEND_AUDIENCE_ID, from, secret: e.NEWSLETTER_CONFIRM_SECRET };
+}
+
+function siteOrigin(env) {
+  const raw = String((env && env.NEWSLETTER_SITE_URL) || "https://www.digitalcurrensy.com").trim();
+  try { const u = new URL(raw); if (u.protocol === "https:") return u.origin; } catch {}
+  return "https://www.digitalcurrensy.com";
+}
+
+async function resendSignup(cfg, data, env, fetchImpl) {
+  const headers = { authorization: `Bearer ${cfg.key}`, "content-type": "application/json" };
+  const failed = { status: 502, body: { ok: false, error: "delivery_failed", message: MESSAGES.delivery_failed } };
+  let created;
+  try {
+    created = await fetchImpl(`https://api.resend.com/audiences/${encodeURIComponent(cfg.audience)}/contacts`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ email: data.email, first_name: data.name || undefined, unsubscribed: true }),
+      signal: AbortSignal.timeout(SIGNUP_TIMEOUT_MS),
+    });
+  } catch { return failed; }
+  // 409/422 = contact already exists: leave its state alone and resend the link.
+  if (!created || (created.ok === false && created.status !== 409 && created.status !== 422)) return failed;
+  const link = `${siteOrigin(env)}/api/newsletter-confirm?token=${encodeURIComponent(makeToken(data.email, cfg.secret))}`;
+  let sent;
+  try {
+    sent = await fetchImpl("https://api.resend.com/emails", {
+      method: "POST",
+      headers,
+      body: JSON.stringify({
+        from: cfg.from,
+        to: [data.email],
+        subject: "Confirm your DCI playlist updates",
+        text: `Hi${data.name ? " " + data.name : ""},\n\nConfirm you want DCI playlist emails by opening this link (valid 48 hours):\n${link}\n\nIf you did not sign up, ignore this email and you will not be added.\n\n— Digital Currensy Inc.`,
+      }),
+      signal: AbortSignal.timeout(SIGNUP_TIMEOUT_MS),
+    });
+  } catch { return failed; }
+  if (!sent || sent.ok === false) return failed;
+  return { status: 200, body: { ok: true, pending: true } };
+}
+
 async function validateNewsletter(body, { disposable: domains, resolveMx }) {
   const b = body && typeof body === "object" ? body : {};
   if (clean(b.website, 200) !== "") return { ok: false, spam: true };
@@ -99,6 +149,8 @@ async function handle(req, env = process.env, fetchImpl = fetch, resolveMx = dns
   const v = await validateNewsletter(body, { disposable: list(), resolveMx });
   if (v.spam) return { status: 200, body: { ok: true } };
   if (!v.ok) return { status: 400, body: { ok: false, error: v.error, message: MESSAGES[v.error] || MESSAGES.delivery_failed } };
+  const cfg = resendConfig(env);
+  if (cfg) return resendSignup(cfg, v.data, env, fetchImpl);
   const url = webhookUrl(env);
   if (!url) return { status: 503, body: { ok: false, error: "not_configured", message: MESSAGES.not_configured } };
   let sent;
@@ -135,4 +187,5 @@ module.exports.validateNewsletter = validateNewsletter;
 module.exports.MESSAGES = MESSAGES;
 module.exports.resetHits = resetHits;
 module.exports.webhookUrl = webhookUrl;
+module.exports.resendConfig = resendConfig;
 module.exports.SIGNUP_TIMEOUT_MS = SIGNUP_TIMEOUT_MS;
