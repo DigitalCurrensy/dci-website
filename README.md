@@ -183,3 +183,9 @@ More detail: **[CONTRIBUTING.md](CONTRIBUTING.md)**
 - Los Angeles
 
 DCI does not provide financial, legal, or investment advice.
+
+## Playlist newsletter (double opt-in)
+
+`POST /api/newsletter` adds the signup to the Resend audience as pending (`unsubscribed: true`) and emails a signed link that expires in 48 hours. `GET /api/newsletter-confirm?token=…` checks the link and marks the contact subscribed. You can see signups on the Resend dashboard (Audiences) and export them as CSV.
+
+Env names (set in Vercel): `RESEND_API_KEY`, `RESEND_AUDIENCE_ID`, `NEWSLETTER_FROM` (falls back to `RATE_CARD_FROM`; the domain must be verified in Resend), `NEWSLETTER_CONFIRM_SECRET` (a long random string). Optional: `NEWSLETTER_SITE_URL`. If any required one is missing, the form answers "not open yet" (503). If the Resend set is incomplete, the old `NEWSLETTER_WEBHOOK_URL` path is still used when it's set.
