@@ -101,18 +101,32 @@ async function handle(req, env = process.env, fetchImpl = fetch, resolveMx = dns
   if (!v.ok) return { status: 400, body: { ok: false, error: v.error, message: MESSAGES[v.error] || MESSAGES.delivery_failed } };
   const url = webhookUrl(env);
   if (!url) return { status: 503, body: { ok: false, error: "not_configured", message: MESSAGES.not_configured } };
-  const sent = await fetchImpl(url, {
-    method: "POST",
-    redirect: "manual",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify(v.data),
-  });
+  let sent;
+  try {
+    sent = await fetchImpl(url, {
+      method: "POST",
+      redirect: "manual",
+      headers: { "content-type": "application/json", accept: "application/json" },
+      body: JSON.stringify(v.data),
+      signal: AbortSignal.timeout(SIGNUP_TIMEOUT_MS),
+    });
+  } catch {
+    return { status: 502, body: { ok: false, error: "delivery_failed", message: MESSAGES.delivery_failed } };
+  }
   if (!sent || sent.ok === false) return { status: 502, body: { ok: false, error: "delivery_failed", message: MESSAGES.delivery_failed } };
   return { status: 200, body: { ok: true } };
 }
 
+const SIGNUP_TIMEOUT_MS = 8000;
+
 module.exports = async function (req, res) {
-  const out = await handle(req);
+  let out;
+  try {
+    out = await handle(req);
+  } catch {
+    // Never leak env names or error text to the visitor.
+    out = { status: 500, body: { ok: false, error: "delivery_failed", message: MESSAGES.delivery_failed } };
+  }
   res.setHeader("cache-control", "no-store");
   res.status(out.status).json(out.body);
 };
@@ -121,3 +135,4 @@ module.exports.validateNewsletter = validateNewsletter;
 module.exports.MESSAGES = MESSAGES;
 module.exports.resetHits = resetHits;
 module.exports.webhookUrl = webhookUrl;
+module.exports.SIGNUP_TIMEOUT_MS = SIGNUP_TIMEOUT_MS;
